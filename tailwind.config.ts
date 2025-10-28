@@ -13,7 +13,26 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ['Cormorant Garamond', 'serif'],
+        sans: ['Inter', 'sans-serif'],
+      },
       colors: {
+        burgundy: {
+          DEFAULT: "hsl(var(--burgundy))",
+          medium: "hsl(var(--burgundy-medium))",
+          soft: "hsl(var(--burgundy-soft))",
+          dark: "hsl(var(--burgundy-dark))",
+        },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+        },
+        sand: "hsl(var(--sand))",
+        paper: {
+          DEFAULT: "hsl(var(--paper))",
+          light: "hsl(var(--paper-light))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

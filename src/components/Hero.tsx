@@ -1,42 +1,111 @@
-import { ArrowRight, MessageCircle } from "lucide-react";
+import type { SVGProps } from "react";
+import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-lawyer.jpg";
+
+const WhatsappIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" {...props}>
+    <path
+      fill="currentColor"
+      d="M16 0C7.164 0 0 7.163 0 16c0 2.82.734 5.502 2.017 7.846L0 32l8.373-2.183A15.86 15.86 0 0 0 16 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm9.447 23.252c-.408 1.148-2.369 2.104-3.271 2.247-.834.127-1.9.178-3.065-.191-.707-.226-1.61-.523-2.785-1.027-4.907-2.121-8.138-7.632-8.384-8.002-.245-.37-2.001-2.662-1.9-5.073.099-2.411 1.39-3.588 1.87-4.073.478-.485 1.043-.61 1.39-.61.347 0 .694 0 .998.018.32.016.757-.122 1.187.909.408.993 1.303 3.426 1.418 3.674.115.248.192.542.038.873-.153.33-.23.542-.46.833-.23.29-.485.65-.693.873-.23.23-.469.48-.202.943.266.462 1.187 1.953 2.55 3.16 1.752 1.562 3.226 2.044 3.688 2.274.462.23.73.191 1-.115.27-.307 1.155-1.347 1.463-1.807.307-.46.614-.383 1.043-.23.43.154 2.712 1.28 3.176 1.509.462.23.77.345.885.538.115.192.115 1.104-.293 2.252z"
+    />
+  </svg>
+);
+
 const Hero = () => {
-  return <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return (
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img src={heroImage} alt="Karina Botti Advocacia" className="w-full h-full object-cover" />
+        <img
+          src={heroImage}
+          alt="Karina Botti Advocacia"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-burgundy-dark/95 via-burgundy-dark/80 to-burgundy/60" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="max-w-3xl">
-          <div className="mb-6 opacity-0 animate-fade-in">
-            
-          </div>
+          <div className="mb-6 opacity-0" data-animate="fade-in" />
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mb-6 leading-tight opacity-0 animate-fade-in-up animation-delay-200">
-            Advocacia e Assessoria Jurídica
+          <h1
+            className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mb-3 leading-tight opacity-0 animation-delay-200"
+            data-animate="fade-in-up"
+          >
+            Karina Franco Botti Lima
           </h1>
 
-          <p className="text-xl sm:text-2xl text-paper/90 mb-8 leading-relaxed opacity-0 animate-fade-in-up animation-delay-400">
-            Assessoria técnica especializada em Administração Pública,
-            contencioso cível e criminal, redação legislativa e processos
-            administrativos
+          <p
+            className="text-xl sm:text-2xl text-gold/80 mb-6 opacity-0 animation-delay-300"
+            data-animate="fade-in-up"
+          >
+            Advogada - OAB/MG 111.637
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up animation-delay-600">
-            <Button size="lg" className="bg-gold hover:bg-gold-light text-burgundy-dark font-semibold text-lg px-8 py-6 transition-all duration-300 shadow-lg hover:shadow-xl group" asChild>
-              <a href="https://wa.me/5531999999999" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-5 w-5" />
+          <p
+            className="text-xl sm:text-2xl text-paper/90 mb-8 leading-relaxed opacity-0 animation-delay-400"
+            data-animate="fade-in-up"
+          >
+            Consultoria e assessoria juridica em Direito Publico e
+            Administrativo, contencioso civel e criminal, legislacao municipal e
+            coaching integral sistemico para gestores e equipes.
+          </p>
+
+          <div
+            className="flex flex-col sm:flex-row gap-4 opacity-0 animation-delay-600"
+            data-animate="fade-in-up"
+          >
+            <Button
+              size="lg"
+              className="bg-gold hover:bg-gold-light text-burgundy-dark font-semibold text-lg px-8 py-6 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              asChild
+            >
+              <a
+                href="https://wa.me/5533998169207?text=Ola%20Dra.%20Karina,%20gostaria%20de%20agendar%20uma%20consulta."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <WhatsappIcon className="mr-2 h-5 w-5" />
                 Fale no WhatsApp
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
 
-            <Button size="lg" variant="outline" className="border-2 border-paper-light text-paper-light hover:bg-paper-light hover:text-burgundy-dark font-semibold text-lg px-8 py-6 transition-all duration-300" asChild>
-              
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-paper-light text-paper-light hover:bg-paper-light hover:text-burgundy-dark font-semibold text-lg px-8 py-6 transition-all duration-300"
+              asChild
+            >
+              <a
+                href="mailto:karinafbl79@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                Enviar e-mail
+              </a>
+            </Button>
+
+            <Button
+              size="lg"
+              variant="ghost"
+              className="bg-paper/10 text-paper-light hover:bg-paper-light/20 font-semibold text-lg px-8 py-6 transition-all duration-300"
+              asChild
+            >
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Av.+Fernando+Mendes+Rosa+Paiva,+389+-+Centro,+Conselheiro+Pena+-+MG"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MapPin className="mr-2 h-5 w-5" />
+                Ver no mapa
+              </a>
             </Button>
           </div>
         </div>
@@ -48,6 +117,9 @@ const Hero = () => {
           <div className="w-1.5 h-3 bg-gold rounded-full animate-pulse" />
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
+

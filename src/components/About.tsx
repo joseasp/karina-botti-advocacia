@@ -8,7 +8,10 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image Column */}
-            <div className="relative opacity-0 animate-slide-in-left">
+            <div
+              className="relative opacity-0"
+              data-animate="slide-in-left"
+            >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={karinaPortrait}
@@ -26,7 +29,10 @@ const About = () => {
             </div>
 
             {/* Content Column */}
-            <div className="opacity-0 animate-slide-in-right animation-delay-200">
+            <div
+              className="opacity-0 animation-delay-200"
+              data-animate="slide-in-right"
+            >
               <span className="text-gold font-semibold uppercase tracking-wider text-sm">
                 Sobre a Advogada
               </span>

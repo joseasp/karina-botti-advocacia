@@ -13,7 +13,10 @@ const Experience = () => {
   return (
     <section id="experiencia" className="py-24 bg-burgundy-dark">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 opacity-0 animate-fade-in-up">
+        <div
+          className="text-center max-w-3xl mx-auto mb-16 opacity-0"
+          data-animate="fade-in-up"
+        >
           <span className="text-gold font-semibold uppercase tracking-wider text-sm">
             Experiência
           </span>
@@ -31,7 +34,8 @@ const Experience = () => {
           {municipalities.map((item, index) => (
             <div
               key={index}
-              className="bg-burgundy/40 backdrop-blur-sm border border-gold/20 rounded-xl p-6 hover:border-gold/50 transition-all duration-300 hover:transform hover:-translate-y-1 opacity-0 animate-fade-in-up"
+              className="bg-burgundy/40 backdrop-blur-sm border border-gold/20 rounded-xl p-6 hover:border-gold/50 transition-all duration-300 hover:transform hover:-translate-y-1 opacity-0"
+              data-animate="fade-in-up"
               style={{ animationDelay: `${(index + 1) * 0.15}s` }}
             >
               <div className="flex items-center space-x-3 mb-3">

@@ -1,4 +1,4 @@
-import { Scale } from "lucide-react";
+import logoHeader from "@/assets/logoheader.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,16 +10,12 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Scale className="h-8 w-8 text-gold" />
-                <div>
-                  <h3 className="text-xl font-serif font-bold text-paper-light">
-                    Karina Botti
-                  </h3>
-                  <p className="text-xs text-gold uppercase tracking-wider">
-                    Advocacia
-                  </p>
-                </div>
+              <div className="flex items-center mb-4">
+                <img
+                  src={logoHeader}
+                  alt="Karina Botti Advocacia"
+                  className="h-14 w-auto"
+                />
               </div>
               <p className="text-paper/70 text-sm leading-relaxed">
                 Advocacia comprometida com a excelência técnica e ética

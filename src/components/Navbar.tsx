@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoHeader from "@/assets/logoheader.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,14 +34,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="flex items-center space-x-3">
-            <div className="flex flex-col">
-              <span className="text-2xl font-serif font-bold text-paper-light tracking-tight">
-                Karina Botti
-              </span>
-              <span className="text-xs text-gold tracking-widest uppercase">
-                Advocacia
-              </span>
-            </div>
+            <img
+              src={logoHeader}
+              alt="Karina Botti Advocacia"
+              className="h-16 w-auto md:h-20"
+            />
           </a>
 
           {/* Desktop Menu */}
@@ -59,7 +57,7 @@ const Navbar = () => {
               className="border-gold text-gold hover:bg-gold hover:text-burgundy-dark transition-all duration-300"
               asChild
             >
-              <a href="#contato">Fale Conosco</a>
+              <a href="#contato">Contato</a>
             </Button>
           </div>
 
@@ -92,8 +90,8 @@ const Navbar = () => {
               className="w-full border-gold text-gold hover:bg-gold hover:text-burgundy-dark"
               asChild
             >
-              <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}>
-                Fale Conosco
+              <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}
+                >Contato
               </a>
             </Button>
           </div>

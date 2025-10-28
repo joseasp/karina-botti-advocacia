@@ -1,3 +1,4 @@
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Areas from "@/components/Areas";
@@ -7,6 +8,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  useScrollAnimations();
+
   return (
     <div className="min-h-screen">
       <Navbar />

@@ -32,7 +32,10 @@ const Areas = () => {
   return (
     <section id="areas" className="py-24 bg-paper-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 opacity-0 animate-fade-in-up">
+        <div
+          className="text-center max-w-3xl mx-auto mb-16 opacity-0"
+          data-animate="fade-in-up"
+        >
           <span className="text-gold font-semibold uppercase tracking-wider text-sm">
             Áreas de Atuação
           </span>
@@ -51,7 +54,8 @@ const Areas = () => {
             return (
               <Card
                 key={index}
-                className="group hover:shadow-2xl transition-all duration-300 border-none bg-white hover:-translate-y-2 opacity-0 animate-fade-in-up"
+                className="group hover:shadow-2xl transition-all duration-300 border-none bg-white hover:-translate-y-2 opacity-0"
+                data-animate="fade-in-up"
                 style={{ animationDelay: `${(index + 1) * 0.2}s` }}
               >
                 <CardContent className="p-8">

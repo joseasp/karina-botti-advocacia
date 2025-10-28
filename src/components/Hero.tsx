@@ -12,21 +12,21 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="max-w-3xl">
-          <div className="mb-6">
+          <div className="mb-6 opacity-0 animate-fade-in">
             
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mb-6 leading-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mb-6 leading-tight opacity-0 animate-fade-in-up animation-delay-200">
             Advocacia e Assessoria Jurídica
           </h1>
 
-          <p className="text-xl sm:text-2xl text-paper/90 mb-8 leading-relaxed">
+          <p className="text-xl sm:text-2xl text-paper/90 mb-8 leading-relaxed opacity-0 animate-fade-in-up animation-delay-400">
             Assessoria técnica especializada em Administração Pública,
             contencioso cível e criminal, redação legislativa e processos
             administrativos
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up animation-delay-600">
             <Button size="lg" className="bg-gold hover:bg-gold-light text-burgundy-dark font-semibold text-lg px-8 py-6 transition-all duration-300 shadow-lg hover:shadow-xl group" asChild>
               <a href="https://wa.me/5531999999999" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" />

@@ -132,7 +132,7 @@ All colors MUST be HSL.
   @keyframes fade-in-up {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(60px);
     }
     to {
       opacity: 1;
@@ -143,6 +143,7 @@ All colors MUST be HSL.
   @keyframes fade-in {
     from {
       opacity: 0;
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -153,7 +154,7 @@ All colors MUST be HSL.
   @keyframes slide-in-left {
     from {
       opacity: 0;
-      transform: translateX(-30px);
+      transform: translateX(-60px);
     }
     to {
       opacity: 1;
@@ -164,7 +165,7 @@ All colors MUST be HSL.
   @keyframes slide-in-right {
     from {
       opacity: 0;
-      transform: translateX(30px);
+      transform: translateX(60px);
     }
     to {
       opacity: 1;
@@ -173,23 +174,23 @@ All colors MUST be HSL.
   }
 
   .animate-fade-in-up {
-    animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animate-fade-in-up-slow {
-    animation: fade-in-up 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fade-in-up 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animate-fade-in {
-    animation: fade-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animate-slide-in-left {
-    animation: slide-in-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animate-slide-in-right {
-    animation: slide-in-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slide-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animation-delay-100 {

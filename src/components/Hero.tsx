@@ -5,11 +5,11 @@ import heroImage from "@/assets/hero-lawyer.jpg";
 
 const heroCopy = {
   headline:
-    "Consultoria e assessoria jur\u00EDdica em Direito P\u00FAblico e Administrativo",
+    "Consultoria e assessoria jurídica em Direito Público e Administrativo",
   subheadline:
-    "Atua\u00E7\u00E3o para prefeituras, c\u00E2maras municipais e atendimento contencioso c\u00EDvel e criminal.",
+    "Atuação para prefeituras, câmaras municipais e atendimento contencioso cível e criminal.",
   description:
-    "Ofere\u00E7o assessoria na elabora\u00E7\u00E3o de projetos de lei, pareceres jur\u00EDdicos e atos normativos; representa\u00E7\u00E3o judicial e orienta\u00E7\u00E3o em processos administrativos, sindic\u00E2ncias e tribut\u00E1rios. Atendimento presencial e remoto, com foco em solu\u00E7\u00F5es pr\u00E1ticas para a gest\u00E3o p\u00FAblica e institui\u00E7\u00F5es.",
+    "Ofereço assessoria na elaboração de projetos de lei, pareceres jurídicos e atos normativos; representação judicial e orientação em processos administrativos, sindicâncias e tributários. Atendimento presencial e remoto, com foco em soluções práticas para a gestão pública e instituições.",
 };
 
 const WhatsappIcon = (props: SVGProps<SVGSVGElement>) => (
@@ -40,10 +40,8 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="max-w-3xl">
-          <div className="mb-6 opacity-0" data-animate="fade-in-up-slow" />
-
           <h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mb-6 leading-tight opacity-0 animation-delay-200"
+            className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mb-6 leading-tight opacity-0 animation-delay-100"
             data-animate="fade-in-up-slow"
           >
             {heroCopy.headline}
@@ -57,7 +55,7 @@ const Hero = () => {
           </p>
 
           <p
-            className="text-lg sm:text-xl text-paper/80 mb-10 leading-relaxed opacity-0 animation-delay-400"
+            className="text-lg sm:text-xl text-paper/80 mb-10 leading-relaxed opacity-0 animation-delay-500"
             data-animate="fade-in-up-slow"
           >
             {heroCopy.description}

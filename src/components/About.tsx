@@ -3,14 +3,14 @@ import karinaPortrait from "@/assets/karina-portrait.jpg";
 
 const aboutCopy = {
   intro:
-    "Com experi\u00EAncia consolidada na Administra\u00E7\u00E3o P\u00FAblica, atuou em assessoria jur\u00EDdica para prefeituras e c\u00E2maras municipais em Minas Gerais, desenvolvendo atividades como: assessoria ao prefeito e demais \u00F3rg\u00E3os; representa\u00E7\u00E3o do munic\u00EDpio em ju\u00EDzo; elabora\u00E7\u00E3o e revis\u00E3o de anteprojetos de lei, decretos e atos normativos; cobran\u00E7a judicial de cr\u00E9ditos tribut\u00E1rios; orienta\u00E7\u00E3o em sindic\u00E2ncias, inqu\u00E9ritos e processos administrativos, disciplinares e tribut\u00E1rios; prepara\u00E7\u00E3o de vetos ou san\u00E7\u00E3o de proposi\u00E7\u00F5es de lei; e revis\u00E3o de pareceres, contratos, conv\u00EAnios e pe\u00E7as processuais.",
+    "Com experiência consolidada na Administração Pública, atuou em assessoria jurídica para prefeituras e câmaras municipais em Minas Gerais, desenvolvendo atividades como: assessoria ao prefeito e demais órgãos; representação do município em juízo; elaboração e revisão de anteprojetos de lei, decretos e atos normativos; cobrança judicial de créditos tributários; orientação em sindicâncias, inquéritos e processos administrativos, disciplinares e tributários; preparação de vetos ou sanção de proposições de lei; e revisão de pareceres, contratos, convênios e peças processuais.",
   experience:
-    "Tamb\u00E9m possui trajet\u00F3ria em reda\u00E7\u00E3o legislativa junto \u00E0s c\u00E2maras municipais, acompanhando reuni\u00F5es, Comiss\u00F5es Permanentes e Processantes, interpretando o Regimento Interno e analisando presta\u00E7\u00F5es de contas, al\u00E9m de atuar no contencioso c\u00EDvel e criminal.",
+    "Também possui trajetória em redação legislativa junto às câmaras municipais, acompanhando reuniões, Comissões Permanentes e Processantes, interpretando o Regimento Interno e analisando prestações de contas, além de atuar no contencioso cível e criminal.",
   academic:
-    "Direito (2003) \u2013 FADIVALE, Faculdade de Direito do Vale do Rio Doce.",
-  complementary: "Coaching Integral Sist\u00EAmico \u2013 FEBRACIS.",
+    "Direito (2003) – FADIVALE, Faculdade de Direito do Vale do Rio Doce.",
+  complementary: "Coaching Integral Sistêmico – FEBRACIS.",
   personal:
-    "Disponibilidade para viagens, habilidade para trabalhar em equipe, boa comunica\u00E7\u00E3o escrita e oral e aten\u00E7\u00E3o ao atendimento ao p\u00FAblico.",
+    "Disponibilidade para viagens, habilidade para trabalhar em equipe, boa comunicação escrita e oral e atenção ao atendimento ao público.",
 };
 
 const About = () => {
@@ -35,7 +35,7 @@ const About = () => {
               <div className="absolute -bottom-6 -right-6 bg-gold text-burgundy-dark p-6 rounded-xl shadow-xl">
                 <div className="text-3xl font-serif font-bold">15+</div>
                 <div className="text-sm font-semibold uppercase tracking-wide">
-                  Anos de Experi\u00EAncia
+                  Anos de Experiência
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-burgundy-dark mb-1">
-                      Forma\u00E7\u00E3o Acad\u00EAmica
+                      Formação Acadêmica
                     </h4>
                     <p className="text-muted-foreground">{aboutCopy.academic}</p>
                   </div>
@@ -77,7 +77,7 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-burgundy-dark mb-1">
-                      Forma\u00E7\u00E3o Complementar
+                      Formação Complementar
                     </h4>
                     <p className="text-muted-foreground">{aboutCopy.complementary}</p>
                   </div>
@@ -89,7 +89,7 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-burgundy-dark mb-1">
-                      Qualifica\u00E7\u00F5es Pessoais
+                      Qualificações Pessoais
                     </h4>
                     <p className="text-muted-foreground">{aboutCopy.personal}</p>
                   </div>

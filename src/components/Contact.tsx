@@ -27,7 +27,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Atendimento presencial",
-    value: "Conselheiro Pena \u2013 MG (Vale do Rio Doce)",
+    value: "Conselheiro Pena – MG (Vale do Rio Doce)",
     href: "https://www.google.com/maps/search/?api=1&query=Conselheiro+Pena+-+MG",
     color: "text-burgundy-medium",
   },
@@ -37,13 +37,13 @@ const contactCopy = {
   sectionTitle: "Entre em Contato",
   heading: "Agende sua consulta",
   intro:
-    "Estou \u00E0 disposi\u00E7\u00E3o para entender suas necessidades jur\u00EDdicas e oferecer solu\u00E7\u00F5es fundamentadas.",
+    "Estou à disposição para entender suas necessidades jurídicas e oferecer soluções fundamentadas.",
   ctaHeading: "Pronto para iniciar?",
   ctaDescription:
     "Envie uma mensagem e agende uma conversa inicial para avaliarmos suas demandas com sigilo e clareza.",
-  disclaimerTitle: "Aviso em conformidade com o C\u00F3digo de \u00C9tica da OAB:",
+  disclaimerTitle: "Aviso em conformidade com o Código de Ética da OAB:",
   disclaimerText:
-    "este site tem car\u00E1ter informativo e n\u00E3o constitui oferta de servi\u00E7os. O agendamento de consultas n\u00E3o implica contrata\u00E7\u00E3o. Informa\u00E7\u00F5es sobre honor\u00E1rios s\u00E3o apresentadas em atendimento inicial.",
+    "este site tem caráter informativo e não constitui oferta de serviços. O agendamento de consultas não implica contratação. Informações sobre honorários são apresentadas em atendimento inicial.",
 };
 
 const Contact = () => {
@@ -97,7 +97,7 @@ const Contact = () => {
             })}
           </div>
 
-          <div className="bg-burgundy-dark rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-burgundy-dark rounded-2xl p-8 md:p-12 text-center opacity-0 animation-delay-600" data-animate="fade-in-up">
             <h3 className="text-3xl font-serif font-bold text-paper-light mb-4">
               {contactCopy.ctaHeading}
             </h3>

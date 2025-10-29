@@ -27,11 +27,24 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Atendimento presencial",
-    value: "Conselheiro Pena - MG (Vale do Rio Doce)",
+    value: "Conselheiro Pena \u2013 MG (Vale do Rio Doce)",
     href: "https://www.google.com/maps/search/?api=1&query=Conselheiro+Pena+-+MG",
     color: "text-burgundy-medium",
   },
 ];
+
+const contactCopy = {
+  sectionTitle: "Entre em Contato",
+  heading: "Agende sua consulta",
+  intro:
+    "Estou \u00E0 disposi\u00E7\u00E3o para entender suas necessidades jur\u00EDdicas e oferecer solu\u00E7\u00F5es fundamentadas.",
+  ctaHeading: "Pronto para iniciar?",
+  ctaDescription:
+    "Envie uma mensagem e agende uma conversa inicial para avaliarmos suas demandas com sigilo e clareza.",
+  disclaimerTitle: "Aviso em conformidade com o C\u00F3digo de \u00C9tica da OAB:",
+  disclaimerText:
+    "este site tem car\u00E1ter informativo e n\u00E3o constitui oferta de servi\u00E7os. O agendamento de consultas n\u00E3o implica contrata\u00E7\u00E3o. Informa\u00E7\u00F5es sobre honor\u00E1rios s\u00E3o apresentadas em atendimento inicial.",
+};
 
 const Contact = () => {
   return (
@@ -42,14 +55,12 @@ const Contact = () => {
           data-animate="fade-in-up"
         >
           <span className="text-gold font-semibold uppercase tracking-wider text-sm">
-            Entre em Contato
+            {contactCopy.sectionTitle}
           </span>
           <h2 className="text-4xl sm:text-5xl font-serif font-bold text-burgundy-dark mt-4 mb-6">
-            Agende sua consulta
+            {contactCopy.heading}
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Estou a disposicao para entender suas necessidades juridicas e oferecer solucoes fundamentadas.
-          </p>
+          <p className="text-lg text-muted-foreground">{contactCopy.intro}</p>
         </div>
 
         <div className="max-w-5xl mx-auto">
@@ -88,10 +99,10 @@ const Contact = () => {
 
           <div className="bg-burgundy-dark rounded-2xl p-8 md:p-12 text-center">
             <h3 className="text-3xl font-serif font-bold text-paper-light mb-4">
-              Pronto para iniciar?
+              {contactCopy.ctaHeading}
             </h3>
             <p className="text-paper/80 text-lg mb-8 max-w-2xl mx-auto">
-              Envie uma mensagem e agende uma conversa inicial para avaliarmos suas demandas com sigilo e clareza.
+              {contactCopy.ctaDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -125,9 +136,9 @@ const Contact = () => {
           <div className="mt-12 p-6 bg-sand/30 border-l-4 border-gold rounded-lg">
             <p className="text-sm text-muted-foreground text-center">
               <strong className="text-burgundy-dark">
-                Aviso em conformidade com o Codigo de Etica da OAB:
+                {contactCopy.disclaimerTitle}
               </strong>{" "}
-              este site tem carater informativo e nao constitui oferta de servicos. O agendamento de consultas nao implica contrato. Informacoes sobre honorarios sao apresentadas em atendimento inicial.
+              {contactCopy.disclaimerText}
             </p>
           </div>
         </div>
@@ -137,4 +148,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

@@ -175,6 +175,10 @@ All colors MUST be HSL.
     animation: fade-in-up 0.8s ease-out forwards;
   }
 
+  .animate-fade-in-up-slow {
+    animation: fade-in-up 1.2s ease-out forwards;
+  }
+
   .animate-fade-in {
     animation: fade-in 0.8s ease-out forwards;
   }

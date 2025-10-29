@@ -3,6 +3,15 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-lawyer.jpg";
 
+const heroCopy = {
+  headline:
+    "Consultoria e assessoria jur\u00EDdica em Direito P\u00FAblico e Administrativo",
+  subheadline:
+    "Atua\u00E7\u00E3o para prefeituras, c\u00E2maras municipais e atendimento contencioso c\u00EDvel e criminal.",
+  description:
+    "Ofere\u00E7o assessoria na elabora\u00E7\u00E3o de projetos de lei, pareceres jur\u00EDdicos e atos normativos; representa\u00E7\u00E3o judicial e orienta\u00E7\u00E3o em processos administrativos, sindic\u00E2ncias e tribut\u00E1rios. Atendimento presencial e remoto, com foco em solu\u00E7\u00F5es pr\u00E1ticas para a gest\u00E3o p\u00FAblica e institui\u00E7\u00F5es.",
+};
+
 const WhatsappIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" {...props}>
     <path
@@ -31,45 +40,32 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="max-w-3xl">
-          <div className="mb-6 opacity-0" data-animate="fade-in" />
-
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-paper/10 rounded-full text-paper/70 text-sm uppercase tracking-wider opacity-0 animation-delay-100"
-            data-animate="fade-in-up"
-          >
-            <span>Karina Franco Botti Lima</span>
-            <span className="text-gold/80">OAB/MG 111.637</span>
-          </div>
+          <div className="mb-6 opacity-0" data-animate="fade-in-up-slow" />
 
           <h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mt-6 mb-6 leading-tight opacity-0 animation-delay-200"
-            data-animate="fade-in-up"
+            className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mb-6 leading-tight opacity-0 animation-delay-200"
+            data-animate="fade-in-up-slow"
           >
-            Consultoria e assessoria juridica em Direito Publico e Administrativo
+            {heroCopy.headline}
           </h1>
 
           <p
             className="text-xl sm:text-2xl text-paper/90 mb-6 leading-relaxed opacity-0 animation-delay-300"
-            data-animate="fade-in-up"
+            data-animate="fade-in-up-slow"
           >
-            Atuacao para prefeituras, camaras municipais e atendimento
-            contencioso civel e criminal.
+            {heroCopy.subheadline}
           </p>
 
           <p
             className="text-lg sm:text-xl text-paper/80 mb-10 leading-relaxed opacity-0 animation-delay-400"
-            data-animate="fade-in-up"
+            data-animate="fade-in-up-slow"
           >
-            Ofereco assessoria na elaboracao de projetos de lei, pareceres
-            juridicos e atos normativos; representacao judicial e orientacao em
-            processos administrativos, sindicancias e tributarios. Atendimento
-            presencial e remoto, com foco em solucoes praticas para a gestao
-            publica e instituicoes.
+            {heroCopy.description}
           </p>
 
           <div
             className="flex flex-col sm:flex-row gap-4 opacity-0 animation-delay-600"
-            data-animate="fade-in-up"
+            data-animate="fade-in-up-slow"
           >
             <Button
               size="lg"
@@ -77,7 +73,7 @@ const Hero = () => {
               asChild
             >
               <a
-                href="https://wa.me/5533998169207?text=Ola%20Dra.%20Karina,%20gostaria%20de%20conversar%20sobre%20assessoria%20juridica."
+                href="https://wa.me/5533998169207?text=Ol%C3%A1%20Dra.%20Karina,%20gostaria%20de%20conversar%20sobre%20assessoria%20jur%C3%ADdica."
                 target="_blank"
                 rel="noopener noreferrer"
               >

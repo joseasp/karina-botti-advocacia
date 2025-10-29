@@ -16,8 +16,8 @@ const Navbar = () => {
   }, []);
 
   const menuItems = [
-    { label: "Áreas de Atuação", href: "#areas" },
-    { label: "Experiência", href: "#experiencia" },
+    { label: "\u00C1reas de Atua\u00E7\u00E3o", href: "#areas" },
+    { label: "Experi\u00EAncia", href: "#experiencia" },
     { label: "Sobre", href: "#sobre" },
     { label: "Contato", href: "#contato" },
   ];
@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center space-x-3">
+          <a href="#hero" className="flex items-center space-x-3">
             <img
               src={logoHeader}
               alt="Karina Botti Advocacia"
@@ -65,6 +65,7 @@ const Navbar = () => {
           <button
             className="md:hidden text-paper-light"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Alternar menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -90,8 +91,8 @@ const Navbar = () => {
               className="w-full border-gold text-gold hover:bg-gold hover:text-burgundy-dark"
               asChild
             >
-              <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}
-                >Contato
+              <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}>
+                Contato
               </a>
             </Button>
           </div>

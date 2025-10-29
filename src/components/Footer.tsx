@@ -1,5 +1,15 @@
 import logoHeader from "@/assets/logoheader.png";
 
+const footerCopy = {
+  description:
+    "Advocacia comprometida com a excel\u00EAncia t\u00E9cnica e \u00E9tica profissional na defesa dos seus direitos.",
+  navigationTitle: "Navega\u00E7\u00E3o",
+  copyright:
+    "Todos os direitos reservados.",
+  compliance:
+    "Este site est\u00E1 em conformidade com o C\u00F3digo de \u00C9tica e Disciplina da OAB.",
+};
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -18,15 +28,14 @@ const Footer = () => {
                 />
               </div>
               <p className="text-paper/70 text-sm leading-relaxed">
-                Advocacia comprometida com a excelência técnica e ética
-                profissional na defesa dos seus direitos.
+                {footerCopy.description}
               </p>
             </div>
 
             {/* Links */}
             <div>
               <h4 className="font-semibold text-paper-light mb-4">
-                Navegação
+                {footerCopy.navigationTitle}
               </h4>
               <ul className="space-y-2 text-sm">
                 <li>
@@ -34,7 +43,7 @@ const Footer = () => {
                     href="#areas"
                     className="text-paper/70 hover:text-gold transition-colors"
                   >
-                    Áreas de Atuação
+                    \u00C1reas de Atua\u00E7\u00E3o
                   </a>
                 </li>
                 <li>
@@ -42,7 +51,7 @@ const Footer = () => {
                     href="#experiencia"
                     className="text-paper/70 hover:text-gold transition-colors"
                   >
-                    Experiência
+                    Experi\u00EAncia
                   </a>
                 </li>
                 <li>
@@ -69,9 +78,9 @@ const Footer = () => {
               <h4 className="font-semibold text-paper-light mb-4">Contato</h4>
               <ul className="space-y-2 text-sm text-paper/70">
                 <li>OAB/MG 111.637</li>
-                <li>contato@karinabotti.adv.br</li>
-                <li>(31) 99999-9999</li>
-                <li>Ipatinga, MG</li>
+                <li>karinabottiadv@gmail.com</li>
+                <li>(33) 99816-9207</li>
+                <li>Conselheiro Pena \u2013 MG</li>
               </ul>
             </div>
           </div>
@@ -79,12 +88,10 @@ const Footer = () => {
           <div className="border-t border-burgundy-medium pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-paper/60 text-sm text-center md:text-left">
-                © {currentYear} Karina Botti Advocacia. Todos os direitos
-                reservados.
+                \u00A9 {currentYear} Karina Botti Advocacia. {footerCopy.copyright}
               </p>
               <p className="text-paper/60 text-xs text-center md:text-right">
-                Este site está em conformidade com o Código de Ética e
-                Disciplina da OAB
+                {footerCopy.compliance}
               </p>
             </div>
           </div>

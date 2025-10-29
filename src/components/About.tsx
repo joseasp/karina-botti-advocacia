@@ -1,6 +1,18 @@
 import { GraduationCap, BookOpen, UserCheck } from "lucide-react";
 import karinaPortrait from "@/assets/karina-portrait.jpg";
 
+const aboutCopy = {
+  intro:
+    "Com experi\u00EAncia consolidada na Administra\u00E7\u00E3o P\u00FAblica, atuou em assessoria jur\u00EDdica para prefeituras e c\u00E2maras municipais em Minas Gerais, desenvolvendo atividades como: assessoria ao prefeito e demais \u00F3rg\u00E3os; representa\u00E7\u00E3o do munic\u00EDpio em ju\u00EDzo; elabora\u00E7\u00E3o e revis\u00E3o de anteprojetos de lei, decretos e atos normativos; cobran\u00E7a judicial de cr\u00E9ditos tribut\u00E1rios; orienta\u00E7\u00E3o em sindic\u00E2ncias, inqu\u00E9ritos e processos administrativos, disciplinares e tribut\u00E1rios; prepara\u00E7\u00E3o de vetos ou san\u00E7\u00E3o de proposi\u00E7\u00F5es de lei; e revis\u00E3o de pareceres, contratos, conv\u00EAnios e pe\u00E7as processuais.",
+  experience:
+    "Tamb\u00E9m possui trajet\u00F3ria em reda\u00E7\u00E3o legislativa junto \u00E0s c\u00E2maras municipais, acompanhando reuni\u00F5es, Comiss\u00F5es Permanentes e Processantes, interpretando o Regimento Interno e analisando presta\u00E7\u00F5es de contas, al\u00E9m de atuar no contencioso c\u00EDvel e criminal.",
+  academic:
+    "Direito (2003) \u2013 FADIVALE, Faculdade de Direito do Vale do Rio Doce.",
+  complementary: "Coaching Integral Sist\u00EAmico \u2013 FEBRACIS.",
+  personal:
+    "Disponibilidade para viagens, habilidade para trabalhar em equipe, boa comunica\u00E7\u00E3o escrita e oral e aten\u00E7\u00E3o ao atendimento ao p\u00FAblico.",
+};
+
 const About = () => {
   return (
     <section id="sobre" className="py-24 bg-paper">
@@ -23,7 +35,7 @@ const About = () => {
               <div className="absolute -bottom-6 -right-6 bg-gold text-burgundy-dark p-6 rounded-xl shadow-xl">
                 <div className="text-3xl font-serif font-bold">15+</div>
                 <div className="text-sm font-semibold uppercase tracking-wide">
-                  Anos de Experiencia
+                  Anos de Experi\u00EAncia
                 </div>
               </div>
             </div>
@@ -40,10 +52,10 @@ const About = () => {
                 Karina Franco Botti Lima
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Com experiencia consolidada na administracao publica, atuou em assessoria juridica para prefeituras e camaras municipais em Minas Gerais, desenvolvendo atividades como: assessoria ao prefeito e demais orgaos; representacao do municipio em juizo; elaboracao e revisao de anteprojetos de lei, decretos e atos normativos; cobranca judicial de creditos tributarios; orientacao em sindicancias, inqueritos e processos administrativos, disciplinares e tributarios; preparacao de vetos ou sancao de proposicoes de lei; e revisao de pareceres, contratos, convenios e pecas processuais.
+                {aboutCopy.intro}
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Tambem possui trajetoria em redacao legislativa junto a camaras municipais, acompanhando reunioes, comissoes permanentes e processantes, interpretando o regimento interno e analisando prestacoes de contas, alem de atuar no contencioso civel e criminal.
+                {aboutCopy.experience}
               </p>
 
               <div className="space-y-4">
@@ -53,11 +65,9 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-burgundy-dark mb-1">
-                      Formacao Academica
+                      Forma\u00E7\u00E3o Acad\u00EAmica
                     </h4>
-                    <p className="text-muted-foreground">
-                      Direito (2003) - FADIVALE, Faculdade de Direito do Vale do Rio Doce.
-                    </p>
+                    <p className="text-muted-foreground">{aboutCopy.academic}</p>
                   </div>
                 </div>
 
@@ -67,11 +77,9 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-burgundy-dark mb-1">
-                      Formacao Complementar
+                      Forma\u00E7\u00E3o Complementar
                     </h4>
-                    <p className="text-muted-foreground">
-                      Coaching Integral Sistemico - FEBRACIS.
-                    </p>
+                    <p className="text-muted-foreground">{aboutCopy.complementary}</p>
                   </div>
                 </div>
 
@@ -81,11 +89,9 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-burgundy-dark mb-1">
-                      Qualificacoes Pessoais
+                      Qualifica\u00E7\u00F5es Pessoais
                     </h4>
-                    <p className="text-muted-foreground">
-                      Disponibilidade para viagens, habilidade para trabalhar em equipe, comunicacao clara e facilidade no atendimento ao publico.
-                    </p>
+                    <p className="text-muted-foreground">{aboutCopy.personal}</p>
                   </div>
                 </div>
               </div>
@@ -98,4 +104,3 @@ const About = () => {
 };
 
 export default About;
-

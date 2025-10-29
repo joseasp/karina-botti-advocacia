@@ -6,31 +6,31 @@ const areas = [
     icon: Landmark,
     title: "Administrativo & Municipal",
     description:
-      "Atuacao em licitacoes, contratos administrativos, processos disciplinares e consultoria tecnica para prefeituras e camaras municipais. Experiencia na elaboracao e revisao de projetos de lei, decretos e atos normativos, alem da orientacao em processos administrativos e tributarios.",
+      "Atua\u00E7\u00E3o em licita\u00E7\u00F5es, contratos administrativos, processos disciplinares e consultoria t\u00E9cnica para prefeituras e c\u00E2maras municipais. Experi\u00EAncia na elabora\u00E7\u00E3o e revis\u00E3o de projetos de lei, decretos e atos normativos, al\u00E9m da orienta\u00E7\u00E3o em processos administrativos e tribut\u00E1rios.",
   },
   {
     icon: Scale,
-    title: "Contencioso Civel",
+    title: "Contencioso C\u00EDvel",
     description:
-      "Atuacao em demandas judiciais envolvendo responsabilidade civil, contratos, indenizacoes e direito do consumidor, com estrategia processual individualizada e foco na solucao eficiente de conflitos.",
+      "Atua\u00E7\u00E3o em demandas judiciais envolvendo responsabilidade civil, contratos, indeniza\u00E7\u00F5es e direito do consumidor, com estrat\u00E9gia processual individualizada e foco na solu\u00E7\u00E3o eficiente de conflitos.",
   },
   {
     icon: FileText,
-    title: "Redacao Legislativa",
+    title: "Reda\u00E7\u00E3o Legislativa",
     description:
-      "Elaboracao e analise tecnica de projetos de lei, decretos, portarias e outros atos normativos municipais, com acompanhamento das comissoes permanentes e processantes e interpretacao do regimento interno.",
+      "Elabora\u00E7\u00E3o e an\u00E1lise t\u00E9cnica de projetos de lei, decretos, portarias e outros atos normativos municipais, com acompanhamento das Comiss\u00F5es Permanentes e Processantes e interpreta\u00E7\u00E3o do Regimento Interno.",
   },
   {
     icon: Users,
     title: "Contencioso Criminal",
     description:
-      "Defesa tecnica em processos criminais, acompanhamento em todas as fases processuais e elaboracao de estrategias defensivas com atuacao etica e comprometida.",
+      "Defesa t\u00E9cnica em processos criminais, acompanhamento em todas as fases processuais e elabora\u00E7\u00E3o de estrat\u00E9gias defensivas com atua\u00E7\u00E3o \u00E9tica e comprometida.",
   },
   {
     icon: Lightbulb,
-    title: "Coaching Juridico e Desenvolvimento Pessoal",
+    title: "Coaching Jur\u00EDdico e Desenvolvimento Pessoal",
     description:
-      "Aplicacao dos principios do Coaching Integral Sistemico no ambiente juridico, promovendo lideranca, clareza e eficiencia na gestao publica e de equipes.",
+      "Aplica\u00E7\u00E3o dos princ\u00EDpios do Coaching Integral Sist\u00EAmico no ambiente jur\u00EDdico, promovendo lideran\u00E7a, clareza e efici\u00EAncia na gest\u00E3o p\u00FAblica e de equipes.",
   },
 ];
 
@@ -43,13 +43,13 @@ const Areas = () => {
           data-animate="fade-in-up"
         >
           <span className="text-gold font-semibold uppercase tracking-wider text-sm">
-            Areas de Atuacao
+            \u00C1reas de Atua\u00E7\u00E3o
           </span>
           <h2 className="text-4xl sm:text-5xl font-serif font-bold text-burgundy-dark mt-4 mb-6">
-            Atuacao Juridica e Consultoria Especializada
+            Atua\u00E7\u00E3o Jur\u00EDdica e Consultoria Especializada
           </h2>
           <p className="text-lg text-muted-foreground">
-            Solucoes tecnicas e personalizadas em Direito Publico, Administrativo, Civel e Criminal, com foco em prefeituras, camaras municipais e instituicoes publicas.
+            Solu\u00E7\u00F5es t\u00E9cnicas e personalizadas em Direito P\u00FAblico, Administrativo, C\u00EDvel e Criminal, com foco em prefeituras, c\u00E2maras municipais e institui\u00E7\u00F5es p\u00FAblicas.
           </p>
         </div>
 
@@ -84,4 +84,3 @@ const Areas = () => {
 };
 
 export default Areas;
-

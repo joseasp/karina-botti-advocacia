@@ -2,38 +2,38 @@ import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const Contact = () => {
-  const contactInfo = [
-    {
-      icon: MessageCircle,
-      title: "WhatsApp",
-      value: "(31) 99999-9999",
-      href: "https://wa.me/5531999999999",
-      color: "text-green-600",
-    },
-    {
-      icon: Mail,
-      title: "E-mail",
-      value: "contato@karinabotti.adv.br",
-      href: "mailto:contato@karinabotti.adv.br",
-      color: "text-gold",
-    },
-    {
-      icon: Phone,
-      title: "Telefone",
-      value: "(31) 3333-4444",
-      href: "tel:+553133334444",
-      color: "text-burgundy",
-    },
-    {
-      icon: MapPin,
-      title: "Endereço",
-      value: "Ipatinga, MG - Vale do Aço",
-      href: "#",
-      color: "text-burgundy-medium",
-    },
-  ];
+const contactInfo = [
+  {
+    icon: MessageCircle,
+    title: "WhatsApp",
+    value: "(33) 99816-9207",
+    href: "https://wa.me/5533998169207",
+    color: "text-emerald-600",
+  },
+  {
+    icon: Mail,
+    title: "E-mail",
+    value: "karinabottiadv@gmail.com",
+    href: "mailto:karinabottiadv@gmail.com",
+    color: "text-gold",
+  },
+  {
+    icon: Phone,
+    title: "Telefone",
+    value: "(33) 99816-9207",
+    href: "tel:+5533998169207",
+    color: "text-burgundy",
+  },
+  {
+    icon: MapPin,
+    title: "Atendimento presencial",
+    value: "Conselheiro Pena - MG (Vale do Rio Doce)",
+    href: "https://www.google.com/maps/search/?api=1&query=Conselheiro+Pena+-+MG",
+    color: "text-burgundy-medium",
+  },
+];
 
+const Contact = () => {
   return (
     <section id="contato" className="py-24 bg-paper-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,11 +45,10 @@ const Contact = () => {
             Entre em Contato
           </span>
           <h2 className="text-4xl sm:text-5xl font-serif font-bold text-burgundy-dark mt-4 mb-6">
-            Agende sua Consulta
+            Agende sua consulta
           </h2>
           <p className="text-lg text-muted-foreground">
-            Estou à disposição para entender suas necessidades jurídicas e
-            oferecer as melhores soluções
+            Estou a disposicao para entender suas necessidades juridicas e oferecer solucoes fundamentadas.
           </p>
         </div>
 
@@ -59,7 +58,7 @@ const Contact = () => {
               const Icon = info.icon;
               return (
                 <Card
-                  key={index}
+                  key={info.title}
                   className="group hover:shadow-xl transition-all duration-300 border-none bg-white hover:-translate-y-1 opacity-0"
                   data-animate="fade-in-up"
                   style={{ animationDelay: `${(index + 1) * 0.15}s` }}
@@ -76,6 +75,8 @@ const Contact = () => {
                     <a
                       href={info.href}
                       className="text-sm text-muted-foreground hover:text-gold transition-colors"
+                      target={info.title === "Atendimento presencial" ? "_blank" : undefined}
+                      rel={info.title === "Atendimento presencial" ? "noopener noreferrer" : undefined}
                     >
                       {info.value}
                     </a>
@@ -87,11 +88,10 @@ const Contact = () => {
 
           <div className="bg-burgundy-dark rounded-2xl p-8 md:p-12 text-center">
             <h3 className="text-3xl font-serif font-bold text-paper-light mb-4">
-              Pronto para Iniciar?
+              Pronto para iniciar?
             </h3>
             <p className="text-paper/80 text-lg mb-8 max-w-2xl mx-auto">
-              Entre em contato para agendar uma consulta inicial. Vamos discutir
-              seu caso e encontrar a melhor estratégia jurídica.
+              Envie uma mensagem e agende uma conversa inicial para avaliarmos suas demandas com sigilo e clareza.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -100,7 +100,7 @@ const Contact = () => {
                 asChild
               >
                 <a
-                  href="https://wa.me/5531999999999"
+                  href="https://wa.me/5533998169207"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -114,9 +114,9 @@ const Contact = () => {
                 className="border-2 border-paper-light text-paper-light hover:bg-paper-light hover:text-burgundy-dark font-semibold text-lg px-8"
                 asChild
               >
-                <a href="mailto:contato@karinabotti.adv.br">
+                <a href="mailto:karinabottiadv@gmail.com">
                   <Mail className="mr-2 h-5 w-5" />
-                  Enviar E-mail
+                  Enviar e-mail
                 </a>
               </Button>
             </div>
@@ -125,12 +125,9 @@ const Contact = () => {
           <div className="mt-12 p-6 bg-sand/30 border-l-4 border-gold rounded-lg">
             <p className="text-sm text-muted-foreground text-center">
               <strong className="text-burgundy-dark">
-                Aviso em Conformidade com o Código de Ética da OAB:
+                Aviso em conformidade com o Codigo de Etica da OAB:
               </strong>{" "}
-              Este site tem caráter meramente informativo e não constitui
-              oferta de serviços. O agendamento de consultas não implica em
-              relação de contratação. Informações sobre valores de honorários
-              serão prestadas em consulta inicial.
+              este site tem carater informativo e nao constitui oferta de servicos. O agendamento de consultas nao implica contrato. Informacoes sobre honorarios sao apresentadas em atendimento inicial.
             </p>
           </div>
         </div>
@@ -140,3 +137,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

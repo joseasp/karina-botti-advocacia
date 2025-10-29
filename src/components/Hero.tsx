@@ -1,5 +1,5 @@
 import type { SVGProps } from "react";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-lawyer.jpg";
 
@@ -33,27 +33,38 @@ const Hero = () => {
         <div className="max-w-3xl">
           <div className="mb-6 opacity-0" data-animate="fade-in" />
 
-          <h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mb-3 leading-tight opacity-0 animation-delay-200"
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 bg-paper/10 rounded-full text-paper/70 text-sm uppercase tracking-wider opacity-0 animation-delay-100"
             data-animate="fade-in-up"
           >
-            Karina Franco Botti Lima
+            <span>Karina Franco Botti Lima</span>
+            <span className="text-gold/80">OAB/MG 111.637</span>
+          </div>
+
+          <h1
+            className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mt-6 mb-6 leading-tight opacity-0 animation-delay-200"
+            data-animate="fade-in-up"
+          >
+            Consultoria e assessoria juridica em Direito Publico e Administrativo
           </h1>
 
           <p
-            className="text-xl sm:text-2xl text-gold/80 mb-6 opacity-0 animation-delay-300"
+            className="text-xl sm:text-2xl text-paper/90 mb-6 leading-relaxed opacity-0 animation-delay-300"
             data-animate="fade-in-up"
           >
-            Advogada - OAB/MG 111.637
+            Atuacao para prefeituras, camaras municipais e atendimento
+            contencioso civel e criminal.
           </p>
 
           <p
-            className="text-xl sm:text-2xl text-paper/90 mb-8 leading-relaxed opacity-0 animation-delay-400"
+            className="text-lg sm:text-xl text-paper/80 mb-10 leading-relaxed opacity-0 animation-delay-400"
             data-animate="fade-in-up"
           >
-            Consultoria e assessoria juridica em Direito Publico e
-            Administrativo, contencioso civel e criminal, legislacao municipal e
-            coaching integral sistemico para gestores e equipes.
+            Ofereco assessoria na elaboracao de projetos de lei, pareceres
+            juridicos e atos normativos; representacao judicial e orientacao em
+            processos administrativos, sindicancias e tributarios. Atendimento
+            presencial e remoto, com foco em solucoes praticas para a gestao
+            publica e instituicoes.
           </p>
 
           <div
@@ -66,45 +77,13 @@ const Hero = () => {
               asChild
             >
               <a
-                href="https://wa.me/5533998169207?text=Ola%20Dra.%20Karina,%20gostaria%20de%20agendar%20uma%20consulta."
+                href="https://wa.me/5533998169207?text=Ola%20Dra.%20Karina,%20gostaria%20de%20conversar%20sobre%20assessoria%20juridica."
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <WhatsappIcon className="mr-2 h-5 w-5" />
-                Fale no WhatsApp
+                Entre em contato
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-paper-light text-paper-light hover:bg-paper-light hover:text-burgundy-dark font-semibold text-lg px-8 py-6 transition-all duration-300"
-              asChild
-            >
-              <a
-                href="mailto:karinafbl79@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Enviar e-mail
-              </a>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="ghost"
-              className="bg-paper/10 text-paper-light hover:bg-paper-light/20 font-semibold text-lg px-8 py-6 transition-all duration-300"
-              asChild
-            >
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Av.+Fernando+Mendes+Rosa+Paiva,+389+-+Centro,+Conselheiro+Pena+-+MG"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MapPin className="mr-2 h-5 w-5" />
-                Ver no mapa
               </a>
             </Button>
           </div>
@@ -122,4 +101,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

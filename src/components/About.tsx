@@ -1,4 +1,4 @@
-import { GraduationCap, Award, BookOpen } from "lucide-react";
+import { GraduationCap, BookOpen, UserCheck } from "lucide-react";
 import karinaPortrait from "@/assets/karina-portrait.jpg";
 
 const About = () => {
@@ -21,9 +21,9 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-burgundy-dark/40 to-transparent" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-gold text-burgundy-dark p-6 rounded-xl shadow-xl">
-                <div className="text-3xl font-serif font-bold">10+</div>
+                <div className="text-3xl font-serif font-bold">15+</div>
                 <div className="text-sm font-semibold uppercase tracking-wide">
-                  Anos de Experiência
+                  Anos de Experiencia
                 </div>
               </div>
             </div>
@@ -37,18 +37,13 @@ const About = () => {
                 Sobre a Advogada
               </span>
               <h2 className="text-4xl sm:text-5xl font-serif font-bold text-burgundy-dark mt-4 mb-6">
-                Dra. Karina Botti
+                Karina Franco Botti Lima
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Advogada inscrita na OAB/MG sob o número 111.637, com formação
-                sólida e especialização em Direito Público. Atua com dedicação e
-                ética na defesa dos interesses de seus clientes, sempre
-                buscando soluções eficientes e juridicamente fundamentadas.
+                Com experiencia consolidada na administracao publica, atuou em assessoria juridica para prefeituras e camaras municipais em Minas Gerais, desenvolvendo atividades como: assessoria ao prefeito e demais orgaos; representacao do municipio em juizo; elaboracao e revisao de anteprojetos de lei, decretos e atos normativos; cobranca judicial de creditos tributarios; orientacao em sindicancias, inqueritos e processos administrativos, disciplinares e tributarios; preparacao de vetos ou sancao de proposicoes de lei; e revisao de pareceres, contratos, convenios e pecas processuais.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Com vasta experiência em assessoria para o setor público,
-                especialmente em municípios da região do Vale do Aço, oferece
-                atendimento personalizado e comprometido com resultados.
+                Tambem possui trajetoria em redacao legislativa junto a camaras municipais, acompanhando reunioes, comissoes permanentes e processantes, interpretando o regimento interno e analisando prestacoes de contas, alem de atuar no contencioso civel e criminal.
               </p>
 
               <div className="space-y-4">
@@ -58,26 +53,10 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-burgundy-dark mb-1">
-                      Formação Acadêmica
+                      Formacao Academica
                     </h4>
                     <p className="text-muted-foreground">
-                      Graduação em Direito com especializações em Direito
-                      Administrativo e Municipal
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Award className="h-6 w-6 text-gold" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-burgundy-dark mb-1">
-                      Reconhecimento Profissional
-                    </h4>
-                    <p className="text-muted-foreground">
-                      Atuação reconhecida em assessoria municipal e contencioso
-                      estratégico
+                      Direito (2003) - FADIVALE, Faculdade de Direito do Vale do Rio Doce.
                     </p>
                   </div>
                 </div>
@@ -88,11 +67,24 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-burgundy-dark mb-1">
-                      Atualização Constante
+                      Formacao Complementar
                     </h4>
                     <p className="text-muted-foreground">
-                      Participação regular em cursos e eventos jurídicos para
-                      melhor atender seus clientes
+                      Coaching Integral Sistemico - FEBRACIS.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <UserCheck className="h-6 w-6 text-gold" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-burgundy-dark mb-1">
+                      Qualificacoes Pessoais
+                    </h4>
+                    <p className="text-muted-foreground">
+                      Disponibilidade para viagens, habilidade para trabalhar em equipe, comunicacao clara e facilidade no atendimento ao publico.
                     </p>
                   </div>
                 </div>
@@ -106,3 +98,4 @@ const About = () => {
 };
 
 export default About;
+

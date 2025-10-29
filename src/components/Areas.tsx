@@ -1,4 +1,4 @@
-import { Scale, Landmark, FileText, Users } from "lucide-react";
+import { Landmark, Scale, FileText, Users, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const areas = [
@@ -6,25 +6,31 @@ const areas = [
     icon: Landmark,
     title: "Administrativo & Municipal",
     description:
-      "Assessoria técnica em licitações, contratos administrativos, processos administrativos disciplinares e consultoria para prefeituras e câmaras municipais.",
+      "Atuacao em licitacoes, contratos administrativos, processos disciplinares e consultoria tecnica para prefeituras e camaras municipais. Experiencia na elaboracao e revisao de projetos de lei, decretos e atos normativos, alem da orientacao em processos administrativos e tributarios.",
   },
   {
     icon: Scale,
-    title: "Contencioso Cível",
+    title: "Contencioso Civel",
     description:
-      "Atuação em demandas judiciais de responsabilidade civil, contratos, indenizações e direito do consumidor com estratégia processual personalizada.",
+      "Atuacao em demandas judiciais envolvendo responsabilidade civil, contratos, indenizacoes e direito do consumidor, com estrategia processual individualizada e foco na solucao eficiente de conflitos.",
   },
   {
     icon: FileText,
-    title: "Redação Legislativa",
+    title: "Redacao Legislativa",
     description:
-      "Elaboração e análise técnica de projetos de lei, decretos, portarias e outros atos normativos municipais com rigor jurídico.",
+      "Elaboracao e analise tecnica de projetos de lei, decretos, portarias e outros atos normativos municipais, com acompanhamento das comissoes permanentes e processantes e interpretacao do regimento interno.",
   },
   {
     icon: Users,
     title: "Contencioso Criminal",
     description:
-      "Defesa técnica qualificada em processos criminais, acompanhamento em todas as fases processuais e elaboração de estratégias defensivas.",
+      "Defesa tecnica em processos criminais, acompanhamento em todas as fases processuais e elaboracao de estrategias defensivas com atuacao etica e comprometida.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Coaching Juridico e Desenvolvimento Pessoal",
+    description:
+      "Aplicacao dos principios do Coaching Integral Sistemico no ambiente juridico, promovendo lideranca, clareza e eficiencia na gestao publica e de equipes.",
   },
 ];
 
@@ -37,14 +43,13 @@ const Areas = () => {
           data-animate="fade-in-up"
         >
           <span className="text-gold font-semibold uppercase tracking-wider text-sm">
-            Áreas de Atuação
+            Areas de Atuacao
           </span>
           <h2 className="text-4xl sm:text-5xl font-serif font-bold text-burgundy-dark mt-4 mb-6">
-            Expertise Jurídica Especializada
+            Atuacao Juridica e Consultoria Especializada
           </h2>
           <p className="text-lg text-muted-foreground">
-            Soluções jurídicas personalizadas com excelência técnica e
-            compromisso com resultados
+            Solucoes tecnicas e personalizadas em Direito Publico, Administrativo, Civel e Criminal, com foco em prefeituras, camaras municipais e instituicoes publicas.
           </p>
         </div>
 
@@ -53,7 +58,7 @@ const Areas = () => {
             const Icon = area.icon;
             return (
               <Card
-                key={index}
+                key={area.title}
                 className="group hover:shadow-2xl transition-all duration-300 border-none bg-white hover:-translate-y-2 opacity-0"
                 data-animate="fade-in-up"
                 style={{ animationDelay: `${(index + 1) * 0.2}s` }}
@@ -79,3 +84,4 @@ const Areas = () => {
 };
 
 export default Areas;
+

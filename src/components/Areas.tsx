@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
-import areasBackground from "@/assets/areas-background.jpg";
 
 const areas = [
   {
@@ -57,31 +56,20 @@ const Areas = () => {
   }, [emblaApi]);
 
   return (
-    <section id="areas" className="relative py-24 overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img
-          src={areasBackground}
-          alt="Background de áreas de atuação"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-burgundy-dark/95 via-burgundy-dark/90 to-burgundy/85" />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="areas" className="py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className="text-center max-w-3xl mx-auto mb-16 opacity-0"
+          className="text-center max-w-3xl mx-auto mb-16"
           data-animate="fade-in-up"
           data-animate-delay="0.2s"
-          data-animate-duration="1.1s"
         >
-          <span className="text-gold font-semibold uppercase tracking-wider text-sm">
+          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
             Áreas de Atuação
           </span>
-          <h2 className="text-4xl sm:text-5xl font-serif font-bold text-paper-light mt-4 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mt-4 mb-6">
             Atuação Jurídica e Consultoria Especializada
           </h2>
-          <p className="text-lg text-paper/80">
+          <p className="text-lg text-muted-foreground">
             Soluções técnicas e personalizadas em Direito Público, Administrativo, Cível e Criminal, com foco em prefeituras, câmaras municipais e instituições públicas.
           </p>
         </div>
@@ -97,17 +85,16 @@ const Areas = () => {
                 return (
                   <div
                     key={area.title}
-                    className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_80%] md:flex-[0_0_60%] lg:flex-[0_0_45%] px-4 opacity-0"
+                    className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_80%] md:flex-[0_0_60%] lg:flex-[0_0_45%] px-4"
                     data-animate="fade-in-up"
                     data-animate-delay={animationDelay}
-                    data-animate-duration="0.9s"
                   >
-                    <Card className="group hover:shadow-2xl transition-all duration-300 border-none bg-white/95 backdrop-blur-sm hover:-translate-y-2 h-full">
+                    <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
                       <CardContent className="p-8">
-                        <div className="w-16 h-16 bg-burgundy rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-300">
-                          <Icon className="h-8 w-8 text-paper-light" />
+                        <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-colors duration-300">
+                          <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
-                        <h3 className="text-2xl font-serif font-semibold text-burgundy-dark mb-4">
+                        <h3 className="text-2xl font-serif font-semibold text-foreground mb-4">
                           {area.title}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
@@ -124,14 +111,14 @@ const Areas = () => {
           {/* Navigation Buttons */}
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-gold hover:bg-gold-light text-burgundy-dark p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-accent hover:bg-accent/80 text-accent-foreground p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-10"
             aria-label="Anterior"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-gold hover:bg-gold-light text-burgundy-dark p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-accent hover:bg-accent/80 text-accent-foreground p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-10"
             aria-label="Próximo"
           >
             <ChevronRight className="h-6 w-6" />

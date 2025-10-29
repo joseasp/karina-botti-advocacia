@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -18,10 +18,10 @@ const contactInfo = [
     color: "text-gold",
   },
   {
-    icon: Phone,
-    title: "Telefone",
-    value: "(33) 99816-9207",
-    href: "tel:+5533998169207",
+    icon: Instagram,
+    title: "Instagram",
+    value: "@karinabottiadv",
+    href: "https://www.instagram.com/karinabottiadv/",
     color: "text-burgundy",
   },
   {
@@ -41,9 +41,6 @@ const contactCopy = {
   ctaHeading: "Pronto para iniciar?",
   ctaDescription:
     "Envie uma mensagem e agende uma conversa inicial para avaliarmos suas demandas com sigilo e clareza.",
-  disclaimerTitle: "Aviso em conformidade com o Código de Ética da OAB:",
-  disclaimerText:
-    "este site tem caráter informativo e não constitui oferta de serviços. O agendamento de consultas não implica contratação. Informações sobre honorários são apresentadas em atendimento inicial.",
 };
 
 const Contact = () => {
@@ -91,8 +88,8 @@ const Contact = () => {
                     <a
                       href={info.href}
                       className="text-sm text-muted-foreground hover:text-gold transition-colors"
-                      target={info.title === "Atendimento presencial" ? "_blank" : undefined}
-                      rel={info.title === "Atendimento presencial" ? "noopener noreferrer" : undefined}
+                      target={info.title === "Atendimento presencial" || info.title === "Instagram" ? "_blank" : undefined}
+                      rel={info.title === "Atendimento presencial" || info.title === "Instagram" ? "noopener noreferrer" : undefined}
                     >
                       {info.value}
                     </a>
@@ -141,15 +138,6 @@ const Contact = () => {
                 </a>
               </Button>
             </div>
-          </div>
-
-          <div className="mt-12 p-6 bg-sand/30 border-l-4 border-gold rounded-lg">
-            <p className="text-sm text-muted-foreground text-center">
-              <strong className="text-burgundy-dark">
-                {contactCopy.disclaimerTitle}
-              </strong>{" "}
-              {contactCopy.disclaimerText}
-            </p>
           </div>
         </div>
       </div>

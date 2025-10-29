@@ -1,8 +1,14 @@
-import { Landmark, Scale, FileText, Users, Lightbulb, ChevronLeft, ChevronRight } from "lucide-react";
+import { Landmark, Scale, FileText, Users, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import useEmblaCarousel from "embla-carousel-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useCallback } from "react";
+import { useRef } from "react";
 
 const areas = [
   {
@@ -38,22 +44,9 @@ const areas = [
 ];
 
 const Areas = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { 
-      loop: true,
-      align: "center",
-      skipSnaps: false,
-    },
-    [Autoplay({ delay: 5000, stopOnInteraction: false })]
+  const plugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
   );
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
 
   return (
     <section id="areas" className="py-24 bg-background">
@@ -74,55 +67,49 @@ const Areas = () => {
           </p>
         </div>
 
-        {/* Carousel */}
-        <div className="relative max-w-6xl mx-auto">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
+        <div
+          className="max-w-6xl mx-auto opacity-0"
+          data-animate="fade-in-up"
+          data-animate-delay="0.4s"
+          data-animate-duration="1.1s"
+        >
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            plugins={[plugin.current]}
+            className="w-full"
+            onMouseEnter={() => plugin.current.stop()}
+            onMouseLeave={() => plugin.current.play()}
+          >
+            <CarouselContent className="-ml-4">
               {areas.map((area, index) => {
                 const Icon = area.icon;
-                const delay = 0.3 + index * 0.12;
-                const animationDelay = `${delay.toFixed(2)}s`;
                 return (
-                  <div
-                    key={area.title}
-                    className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_80%] md:flex-[0_0_60%] lg:flex-[0_0_45%] px-4"
-                    data-animate="fade-in-up"
-                    data-animate-delay={animationDelay}
-                  >
-                    <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
-                      <CardContent className="p-8">
-                        <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-colors duration-300">
-                          <Icon className="h-8 w-8 text-primary-foreground" />
-                        </div>
-                        <h3 className="text-2xl font-serif font-semibold text-foreground mb-4">
-                          {area.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {area.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
+                  <CarouselItem key={area.title} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <div className="h-full">
+                      <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full border-gold/20 hover:border-gold/40 bg-card">
+                        <CardContent className="p-8 flex flex-col h-full">
+                          <div className="w-16 h-16 bg-burgundy-dark/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300 border border-gold/20">
+                            <Icon className="h-8 w-8 text-burgundy-dark" />
+                          </div>
+                          <h3 className="text-2xl font-serif font-semibold text-burgundy-dark mb-4">
+                            {area.title}
+                          </h3>
+                          <p className="text-muted-foreground leading-relaxed flex-grow">
+                            {area.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
                 );
               })}
-            </div>
-          </div>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-accent hover:bg-accent/80 text-accent-foreground p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-10"
-            aria-label="Anterior"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-          <button
-            onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-accent hover:bg-accent/80 text-accent-foreground p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-10"
-            aria-label="Próximo"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </button>
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-12 bg-burgundy-dark/60 border-gold/40 hover:bg-burgundy-dark/80 hover:border-gold text-gold" />
+            <CarouselNext className="hidden md:flex -right-12 bg-burgundy-dark/60 border-gold/40 hover:bg-burgundy-dark/80 hover:border-gold text-gold" />
+          </Carousel>
         </div>
       </div>
     </section>

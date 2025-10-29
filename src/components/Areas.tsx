@@ -72,6 +72,8 @@ const Areas = () => {
         <div
           className="text-center max-w-3xl mx-auto mb-16 opacity-0"
           data-animate="fade-in-up"
+          data-animate-delay="0.2s"
+          data-animate-duration="1.1s"
         >
           <span className="text-gold font-semibold uppercase tracking-wider text-sm">
             Áreas de Atuação
@@ -88,12 +90,17 @@ const Areas = () => {
         <div className="relative max-w-6xl mx-auto">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
-              {areas.map((area) => {
+              {areas.map((area, index) => {
                 const Icon = area.icon;
+                const delay = 0.3 + index * 0.12;
+                const animationDelay = `${delay.toFixed(2)}s`;
                 return (
                   <div
                     key={area.title}
-                    className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_80%] md:flex-[0_0_60%] lg:flex-[0_0_45%] px-4"
+                    className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_80%] md:flex-[0_0_60%] lg:flex-[0_0_45%] px-4 opacity-0"
+                    data-animate="fade-in-up"
+                    data-animate-delay={animationDelay}
+                    data-animate-duration="0.9s"
                   >
                     <Card className="group hover:shadow-2xl transition-all duration-300 border-none bg-white/95 backdrop-blur-sm hover:-translate-y-2 h-full">
                       <CardContent className="p-8">

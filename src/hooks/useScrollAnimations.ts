@@ -34,6 +34,22 @@ export const useScrollAnimations = () => {
         return;
       }
 
+      const { animateDelay, animateDuration, animateEase } = target.dataset;
+
+      if (animateDelay) {
+        target.style.setProperty("--animate-delay", animateDelay);
+        target.style.animationDelay = animateDelay;
+      }
+
+      if (animateDuration) {
+        target.style.setProperty("--animate-duration", animateDuration);
+        target.style.animationDuration = animateDuration;
+      }
+
+      if (animateEase) {
+        target.style.setProperty("--animate-ease", animateEase);
+      }
+
       const animationClass = `animate-${animationType}`;
       if (!target.classList.contains(animationClass)) {
         target.classList.add(animationClass);

@@ -132,7 +132,7 @@ All colors MUST be HSL.
   @keyframes fade-in-up {
     from {
       opacity: 0;
-      transform: translateY(60px);
+      transform: translateY(40px);
     }
     to {
       opacity: 1;
@@ -154,7 +154,7 @@ All colors MUST be HSL.
   @keyframes slide-in-left {
     from {
       opacity: 0;
-      transform: translateX(-60px);
+      transform: translateX(-40px);
     }
     to {
       opacity: 1;
@@ -165,7 +165,7 @@ All colors MUST be HSL.
   @keyframes slide-in-right {
     from {
       opacity: 0;
-      transform: translateX(60px);
+      transform: translateX(40px);
     }
     to {
       opacity: 1;
@@ -173,24 +173,39 @@ All colors MUST be HSL.
     }
   }
 
+  .animate-fade-in-up,
+  .animate-fade-in-up-slow,
+  .animate-fade-in,
+  .animate-slide-in-left,
+  .animate-slide-in-right {
+    --animate-duration: 1s;
+    --animate-delay: 0s;
+    --animate-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-duration: var(--animate-duration);
+    animation-timing-function: var(--animate-ease);
+    animation-delay: var(--animate-delay);
+    animation-fill-mode: forwards;
+  }
+
   .animate-fade-in-up {
-    animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-name: fade-in-up;
   }
 
   .animate-fade-in-up-slow {
-    animation: fade-in-up 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    --animate-duration: 1.8s;
+    animation-name: fade-in-up;
   }
 
   .animate-fade-in {
-    animation: fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-name: fade-in;
   }
 
   .animate-slide-in-left {
-    animation: slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-name: slide-in-left;
   }
 
   .animate-slide-in-right {
-    animation: slide-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-name: slide-in-right;
   }
 
   .animation-delay-100 {
@@ -215,5 +230,21 @@ All colors MUST be HSL.
 
   .animation-delay-600 {
     animation-delay: 0.6s;
+  }
+
+  .animation-delay-700 {
+    animation-delay: 0.7s;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 0.8s;
+  }
+
+  .animation-delay-900 {
+    animation-delay: 0.9s;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1s;
   }
 }

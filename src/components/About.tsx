@@ -23,6 +23,8 @@ const About = () => {
             <div
               className="relative opacity-0"
               data-animate="slide-in-left"
+              data-animate-delay="0.1s"
+              data-animate-duration="1.2s"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
@@ -32,7 +34,12 @@ const About = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-burgundy-dark/40 to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-gold text-burgundy-dark p-6 rounded-xl shadow-xl">
+              <div
+                className="absolute -bottom-6 -right-6 bg-gold text-burgundy-dark p-6 rounded-xl shadow-xl opacity-0"
+                data-animate="fade-in-up"
+                data-animate-delay="0.5s"
+                data-animate-duration="1s"
+              >
                 <div className="text-3xl font-serif font-bold">15+</div>
                 <div className="text-sm font-semibold uppercase tracking-wide">
                   Anos de Experiência
@@ -42,8 +49,10 @@ const About = () => {
 
             {/* Content Column */}
             <div
-              className="opacity-0 animation-delay-200"
+              className="opacity-0"
               data-animate="slide-in-right"
+              data-animate-delay="0.25s"
+              data-animate-duration="1.2s"
             >
               <span className="text-gold font-semibold uppercase tracking-wider text-sm">
                 Sobre a Advogada
@@ -59,7 +68,12 @@ const About = () => {
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-start space-x-4">
+                <div
+                  className="flex items-start space-x-4 opacity-0"
+                  data-animate="fade-in-up"
+                  data-animate-delay="0.45s"
+                  data-animate-duration="0.9s"
+                >
                   <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <GraduationCap className="h-6 w-6 text-gold" />
                   </div>
@@ -71,7 +85,12 @@ const About = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
+                <div
+                  className="flex items-start space-x-4 opacity-0"
+                  data-animate="fade-in-up"
+                  data-animate-delay="0.6s"
+                  data-animate-duration="0.9s"
+                >
                   <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <BookOpen className="h-6 w-6 text-gold" />
                   </div>
@@ -83,7 +102,12 @@ const About = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
+                <div
+                  className="flex items-start space-x-4 opacity-0"
+                  data-animate="fade-in-up"
+                  data-animate-delay="0.75s"
+                  data-animate-duration="0.9s"
+                >
                   <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <UserCheck className="h-6 w-6 text-gold" />
                   </div>

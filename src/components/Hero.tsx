@@ -4,10 +4,8 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-lawyer.jpg";
 
 const heroCopy = {
-  headline:
-    "Consultoria e assessoria jurídica em Direito Público e Administrativo",
-  subheadline:
-    "Atuação para prefeituras, câmaras municipais e atendimento contencioso cível e criminal.",
+  headline: "Consultoria e Assessoria Jurídica em Direito Público e Administrativo",
+  subheadline: "Atuação para prefeituras, câmaras municipais e atendimento contencioso cível e criminal.",
   description:
     "Ofereço assessoria na elaboração de projetos de lei, pareceres jurídicos e atos normativos; representação judicial e orientação em processos administrativos, sindicâncias e tributários. Atendimento presencial e remoto, com foco em soluções práticas para a gestão pública e instituições.",
 };
@@ -23,17 +21,10 @@ const WhatsappIcon = (props: SVGProps<SVGSVGElement>) => (
 
 const Hero = () => {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Karina Botti Advocacia"
-          className="w-full h-full object-cover"
-        />
+        <img src={heroImage} alt="Karina Botti Advocacia" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-burgundy-dark/95 via-burgundy-dark/80 to-burgundy/60" />
       </div>
 
@@ -64,11 +55,7 @@ const Hero = () => {
             {heroCopy.description}
           </p>
 
-          <div
-            className="flex flex-col sm:flex-row gap-4"
-            data-animate="fade-in-up-slow"
-            data-animate-delay="1.1s"
-          >
+          <div className="flex flex-col sm:flex-row gap-4" data-animate="fade-in-up-slow" data-animate-delay="1.1s">
             <Button
               size="lg"
               className="bg-gold hover:bg-gold-light text-burgundy-dark font-semibold text-lg px-8 py-6 transition-all duration-300 shadow-lg hover:shadow-xl group"

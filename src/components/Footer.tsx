@@ -1,13 +1,14 @@
 import logoHeader from "@/assets/logoheader.png";
+import { Instagram } from "lucide-react";
 
 const footerCopy = {
   description:
-    "Advocacia comprometida com a excel\u00EAncia t\u00E9cnica e \u00E9tica profissional na defesa dos seus direitos.",
-  navigationTitle: "Navega\u00E7\u00E3o",
+    "Advocacia comprometida com a excelência técnica e ética profissional na defesa dos seus direitos.",
+  navigationTitle: "Navegação",
   copyright:
     "Todos os direitos reservados.",
   compliance:
-    "Este site est\u00E1 em conformidade com o C\u00F3digo de \u00C9tica e Disciplina da OAB.",
+    "Este site está em conformidade com o Código de Ética e Disciplina da OAB.",
 };
 
 const Footer = () => {
@@ -17,7 +18,7 @@ const Footer = () => {
     <footer className="bg-burgundy-dark text-paper py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Brand */}
             <div>
               <div className="flex items-center mb-4">
@@ -43,7 +44,7 @@ const Footer = () => {
                     href="#areas"
                     className="text-paper/70 hover:text-gold transition-colors"
                   >
-                    \u00C1reas de Atua\u00E7\u00E3o
+                    Áreas de Atuação
                   </a>
                 </li>
                 <li>
@@ -51,7 +52,7 @@ const Footer = () => {
                     href="#experiencia"
                     className="text-paper/70 hover:text-gold transition-colors"
                   >
-                    Experi\u00EAncia
+                    Experiência
                   </a>
                 </li>
                 <li>
@@ -80,15 +81,29 @@ const Footer = () => {
                 <li>OAB/MG 111.637</li>
                 <li>karinabottiadv@gmail.com</li>
                 <li>(33) 99816-9207</li>
-                <li>Conselheiro Pena \u2013 MG</li>
+                <li>Conselheiro Pena – MG</li>
               </ul>
+            </div>
+
+            {/* Social Media */}
+            <div>
+              <h4 className="font-semibold text-paper-light mb-4">Redes Sociais</h4>
+              <a
+                href="https://www.instagram.com/karinabottiadv/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sm text-paper/70 hover:text-gold transition-colors group"
+              >
+                <Instagram className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+                @karinabottiadv
+              </a>
             </div>
           </div>
 
           <div className="border-t border-burgundy-medium pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-paper/60 text-sm text-center md:text-left">
-                \u00A9 {currentYear} Karina Botti Advocacia. {footerCopy.copyright}
+                © {currentYear} Karina Botti Advocacia. {footerCopy.copyright}
               </p>
               <p className="text-paper/60 text-xs text-center md:text-right">
                 {footerCopy.compliance}

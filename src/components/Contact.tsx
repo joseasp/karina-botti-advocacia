@@ -17,20 +17,6 @@ const contactInfo = [
     href: "mailto:karinabottiadv@gmail.com",
     color: "text-gold",
   },
-  {
-    icon: Instagram,
-    title: "Instagram",
-    value: "@karinabottiadv",
-    href: "https://www.instagram.com/karinabottiadv/",
-    color: "text-burgundy",
-  },
-  {
-    icon: MapPin,
-    title: "Atendimento presencial",
-    value: "Conselheiro Pena – MG (Vale do Rio Doce)",
-    href: "https://www.google.com/maps/search/?api=1&query=Conselheiro+Pena+-+MG",
-    color: "text-burgundy-medium",
-  },
 ];
 
 const contactCopy = {
@@ -63,7 +49,7 @@ const Contact = () => {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               const delay = (index + 1) * 0.15;
@@ -76,20 +62,18 @@ const Contact = () => {
                   data-animate-delay={animationDelay}
                   data-animate-duration="0.85s"
                 >
-                  <CardContent className="p-6 text-center">
+                  <CardContent className="p-8 text-center">
                     <div
-                      className={`w-12 h-12 ${info.color} bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4`}
+                      className={`w-16 h-16 ${info.color} bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4`}
                     >
-                      <Icon className={`h-6 w-6 ${info.color}`} />
+                      <Icon className={`h-8 w-8 ${info.color}`} />
                     </div>
-                    <h3 className="font-semibold text-burgundy-dark mb-2">
+                    <h3 className="font-semibold text-burgundy-dark mb-2 text-lg">
                       {info.title}
                     </h3>
                     <a
                       href={info.href}
-                      className="text-sm text-muted-foreground hover:text-gold transition-colors"
-                      target={info.title === "Atendimento presencial" || info.title === "Instagram" ? "_blank" : undefined}
-                      rel={info.title === "Atendimento presencial" || info.title === "Instagram" ? "noopener noreferrer" : undefined}
+                      className="text-base text-muted-foreground hover:text-gold transition-colors"
                     >
                       {info.value}
                     </a>
@@ -97,6 +81,81 @@ const Contact = () => {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Location Section */}
+          <div
+            className="mb-12 opacity-0"
+            data-animate="fade-in-up"
+            data-animate-delay="0.5s"
+            data-animate-duration="1.1s"
+          >
+            <h3 className="text-3xl font-serif font-bold text-burgundy-dark text-center mb-8">
+              Onde nos encontrar
+            </h3>
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              {/* Address Information */}
+              <Card className="border-none bg-white h-full">
+                <CardContent className="p-8">
+                  <div className="space-y-6">
+                    <div>
+                      <div className="flex items-start mb-3">
+                        <MapPin className="h-6 w-6 text-burgundy mr-3 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold text-burgundy-dark mb-1">
+                            Endereço
+                          </h4>
+                          <p className="text-muted-foreground">
+                            Conselheiro Pena – MG
+                            <br />
+                            Vale do Rio Doce
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-gray-200 pt-6">
+                      <h4 className="font-semibold text-burgundy-dark mb-2">
+                        Horário de Atendimento
+                      </h4>
+                      <p className="text-muted-foreground">
+                        Segunda a Sexta: 9h às 19h
+                      </p>
+                    </div>
+
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="w-full border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-paper-light font-semibold"
+                      asChild
+                    >
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=Conselheiro+Pena+-+MG"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MapPin className="mr-2 h-5 w-5" />
+                        Ver no Google Maps
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Google Maps Embed */}
+              <div className="rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60616.66928217771!2d-41.5!3d-19.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAxJzQ4LjAiUyA0McKwMzAnMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: "400px" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localização Conselheiro Pena - MG"
+                ></iframe>
+              </div>
+            </div>
           </div>
 
           <div

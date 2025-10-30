@@ -83,7 +83,7 @@ const Areas = () => {
             onMouseEnter={() => plugin.current.stop()}
             onMouseLeave={() => plugin.current.play()}
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4 py-4">
               {areas.map((area, index) => {
                 const Icon = area.icon;
                 return (

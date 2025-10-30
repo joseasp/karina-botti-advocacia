@@ -101,14 +101,20 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-burgundy-medium pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-paper/60 text-sm text-center md:text-left">
-                © {currentYear} Karina Botti Advocacia. {footerCopy.copyright}
-              </p>
-              <p className="text-paper/60 text-xs text-center md:text-right">
-                {footerCopy.compliance}
-              </p>
-            </div>
+            <p className="text-paper/60 text-sm">
+              &copy; {currentYear} Karina Botti Advocacia. Todos os direitos reservados.
+            </p>
+            <p className="text-paper/60 text-sm mt-2">
+              Criado por{" "}
+              <a
+                href="https://wa.me/5533998572879"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors duration-200"
+              >
+                José Apolinário
+              </a>
+            </p>
           </div>
         </div>
       </div>

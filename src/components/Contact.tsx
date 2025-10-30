@@ -1,4 +1,4 @@
-import { Mail, MapPin, MessageCircle, Instagram } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -8,7 +8,7 @@ const contactInfo = [
     title: "WhatsApp",
     value: "(33) 99816-9207",
     href: "https://wa.me/5533998169207",
-    color: "text-emerald-600",
+    color: "text-[#25D366]",
   },
   {
     icon: Mail,
@@ -64,7 +64,9 @@ const Contact = () => {
                 >
                   <CardContent className="p-8 text-center">
                     <div
-                      className={`w-16 h-16 ${info.color} bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4`}
+                      className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${
+                        info.title === "WhatsApp" ? "bg-[#25D366]/10" : "bg-gold/10"
+                      }`}
                     >
                       <Icon className={`h-8 w-8 ${info.color}`} />
                     </div>
@@ -106,9 +108,11 @@ const Contact = () => {
                             Endereço
                           </h4>
                           <p className="text-muted-foreground">
-                            Conselheiro Pena – MG
+                            Avenida Manoel Calhau, 245
                             <br />
-                            Vale do Rio Doce
+                            Conselheiro Pena - MG
+                            <br />
+                            CEP: 35240-000, Brasil
                           </p>
                         </div>
                       </div>
@@ -130,7 +134,7 @@ const Contact = () => {
                       asChild
                     >
                       <a
-                        href="https://www.google.com/maps/search/?api=1&query=Conselheiro+Pena+-+MG"
+                        href="https://www.google.com/maps/search/?api=1&query=Avenida+Manoel+Calhau,+245,+Conselheiro+Pena+MG,+35240-000,+Brasil"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -145,14 +149,14 @@ const Contact = () => {
               {/* Google Maps Embed */}
               <div className="rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60616.66928217771!2d-41.5!3d-19.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAxJzQ4LjAiUyA0McKwMzAnMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.7!2d-41.49!3d-19.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAvenida+Manoel+Calhau,+245,+Conselheiro+Pena+-+MG,+35240-000!5e0!3m2!1spt-BR!2sbr!4v1234567890"
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: "400px" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localização Conselheiro Pena - MG"
+                  title="Avenida Manoel Calhau, 245 - Conselheiro Pena - MG"
                 ></iframe>
               </div>
             </div>

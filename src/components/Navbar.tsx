@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import logoHeader from "@/assets/logoheader.png";
 
 const Navbar = () => {
@@ -19,7 +18,6 @@ const Navbar = () => {
     { label: "\u00C1reas de Atua\u00E7\u00E3o", href: "#areas" },
     { label: "Experi\u00EAncia", href: "#experiencia" },
     { label: "Sobre", href: "#sobre" },
-    { label: "Contato", href: "#contato" },
   ];
 
   return (
@@ -52,13 +50,6 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
-            <Button
-              variant="outline"
-              className="border-gold text-gold hover:bg-gold hover:text-burgundy-dark transition-all duration-300"
-              asChild
-            >
-              <a href="#contato">Contato</a>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -86,15 +77,6 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
-            <Button
-              variant="outline"
-              className="w-full border-gold text-gold hover:bg-gold hover:text-burgundy-dark"
-              asChild
-            >
-              <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}>
-                Contato
-              </a>
-            </Button>
           </div>
         </div>
       )}

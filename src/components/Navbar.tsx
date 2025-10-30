@@ -18,6 +18,7 @@ const Navbar = () => {
     { label: "\u00C1reas de Atua\u00E7\u00E3o", href: "#areas" },
     { label: "Experi\u00EAncia", href: "#experiencia" },
     { label: "Sobre", href: "#sobre" },
+    { label: "Contato", href: "#contato" },
   ];
 
   return (

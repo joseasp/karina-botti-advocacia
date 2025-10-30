@@ -38,15 +38,7 @@ const Hero = () => {
             {heroCopy.subheadline}
           </p>
 
-          <p
-            className="text-lg sm:text-xl text-paper/80 mb-10 leading-relaxed"
-            data-animate="fade-in-up-slow"
-            data-animate-delay="0.8s"
-          >
-            {heroCopy.description}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4" data-animate="fade-in-up-slow" data-animate-delay="1.1s">
+          <div className="flex flex-col sm:flex-row gap-4" data-animate="fade-in-up-slow" data-animate-delay="0.8s">
             <Button
               size="lg"
               className="bg-gold hover:bg-gold-light text-burgundy-dark font-semibold text-lg px-8 py-6 transition-all duration-300 shadow-lg hover:shadow-xl group"

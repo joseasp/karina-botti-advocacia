@@ -69,7 +69,7 @@ const Contact = () => {
               return (
                 <Card
                   key={info.title}
-                  className="group hover:shadow-xl transition-all duration-300 border-none bg-white hover:-translate-y-1"
+                  className={`group hover:shadow-xl transition-all duration-300 border-none bg-white hover:-translate-y-1 scroll-animate ${index === 0 ? 'delay-100' : 'delay-200'}`}
                 >
                   <CardContent className="p-8">
                     <div className="text-center mb-6">

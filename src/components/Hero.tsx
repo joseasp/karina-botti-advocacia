@@ -15,7 +15,12 @@ const Hero = () => {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img src={heroImage} alt="Karina Botti Advocacia" className="w-full h-full object-cover" />
+        <img 
+          src={heroImage} 
+          alt="Karina Botti Advocacia" 
+          className="w-full h-full object-cover animate-fade-in"
+          style={{ animationDuration: '1.2s' }}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-burgundy-dark/95 via-burgundy-dark/80 to-burgundy/60" />
       </div>
 

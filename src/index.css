@@ -202,6 +202,23 @@ All colors MUST be HSL.
     transform: translateX(0);
   }
 
+  /* Hero fade-in animation - CSS puro sem flash */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+    opacity: 0;
+  }
+
   /* Delay utilities */
   .delay-100 { transition-delay: 0.1s; }
   .delay-200 { transition-delay: 0.2s; }

@@ -102,20 +102,11 @@ const Footer = () => {
           {/* Privacy Disclaimer */}
           <div className="border-t border-burgundy-medium pt-8 pb-6">
             <h4 className="font-semibold text-paper-light mb-3">
-              Privacidade (LGPD)
+              Privacidade
             </h4>
             <p className="text-paper/70 text-sm leading-relaxed mb-3">
-              Este site não coleta dados pessoais por formulários ou analytics. 
-              Ao acessar links externos (WhatsApp, Google Maps, Instagram), aplicam-se 
-              as políticas de privacidade desses provedores. Para dúvidas ou solicitações 
-              sobre privacidade, entre em contato pelo e-mail{" "}
-              <a
-                href="mailto:karinabottiadv@gmail.com"
-                className="text-gold hover:text-gold-light transition-colors"
-              >
-                karinabottiadv@gmail.com
-              </a>
-              .
+              Este site não coleta dados pessoais. Ao acessar links externos, aplicam-se 
+              as políticas de privacidade desses provedores.
             </p>
             <p className="text-paper/60 text-xs">
               Última atualização: 11/2025

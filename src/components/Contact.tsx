@@ -206,39 +206,19 @@ const Contact = () => {
               {/* Google Maps - Click to Load */}
               <div className="rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px]">
                 {!mapLoaded ? (
-                  <div className="bg-paper-light h-full min-h-[400px] flex flex-col items-center justify-center p-8 space-y-6">
-                    <div className="w-16 h-16 rounded-full bg-burgundy-light/10 flex items-center justify-center">
-                      <MapPin className="h-8 w-8 text-burgundy" />
-                    </div>
-                    
-                    <div className="space-y-2 text-center">
-                      <h4 className="text-lg font-semibold text-burgundy-dark">
-                        Visualizar Localização
-                      </h4>
-                      <div className="text-burgundy-medium">
-                        <p className="flex items-center justify-center gap-2">
-                          <MapPin className="h-4 w-4" />
-                          Av. Manoel Calhau, 245
-                        </p>
-                        <p className="text-sm">Conselheiro Pena - MG</p>
-                      </div>
-                    </div>
-
-                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-900 max-w-md">
-                      <p className="font-medium mb-1">⚠️ Conteúdo de terceiros (Google Maps)</p>
-                      <p className="text-xs leading-relaxed">
-                        Ao carregar este mapa, o Google poderá coletar dados técnicos (ex.: endereço IP). 
-                        O uso está sujeito à política de privacidade do Google.
+                  <div 
+                    className="bg-card h-full min-h-[400px] flex flex-col items-center justify-center p-8 space-y-4 cursor-pointer hover:bg-accent/50 transition-all group"
+                    onClick={() => setMapLoaded(true)}
+                  >
+                    <MapPin className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <div className="text-center space-y-1">
+                      <h4 className="font-semibold text-lg">Visualizar no mapa</h4>
+                      <p className="text-xs text-muted-foreground">
+                        Conteúdo do Google.
                       </p>
                     </div>
-
-                    <Button
-                      onClick={() => setMapLoaded(true)}
-                      size="lg"
-                      className="w-full sm:w-auto"
-                    >
-                      <MapPin className="h-4 w-4 mr-2" />
-                      Carregar Mapa do Google
+                    <Button variant="outline" className="gap-2">
+                      Ver mapa
                     </Button>
                   </div>
                 ) : (

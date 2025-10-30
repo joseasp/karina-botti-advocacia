@@ -20,11 +20,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image Column */}
-            <div
-              data-animate="slide-in-left"
-              data-animate-delay="0.1s"
-              data-animate-duration="1.2s"
-            >
+            <div>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={karinaPortrait}
@@ -35,9 +31,6 @@ const About = () => {
               </div>
               <div
                 className="absolute -bottom-6 -right-6 bg-gold text-burgundy-dark p-6 rounded-xl shadow-xl"
-                data-animate="fade-in-up"
-                data-animate-delay="0.5s"
-                data-animate-duration="1s"
               >
                 <div className="text-3xl font-serif font-bold">15+</div>
                 <div className="text-sm font-semibold uppercase tracking-wide">
@@ -47,11 +40,7 @@ const About = () => {
             </div>
 
             {/* Content Column */}
-            <div
-              data-animate="slide-in-right"
-              data-animate-delay="0.25s"
-              data-animate-duration="1.2s"
-            >
+            <div>
               <span className="text-gold font-semibold uppercase tracking-wider text-sm">
                 Sobre a Advogada
               </span>
@@ -66,12 +55,7 @@ const About = () => {
               </p>
 
               <div className="space-y-4">
-                <div
-                  className="flex items-start space-x-4"
-                  data-animate="fade-in-up"
-                  data-animate-delay="0.45s"
-                  data-animate-duration="0.9s"
-                >
+                <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <GraduationCap className="h-6 w-6 text-gold" />
                   </div>
@@ -83,12 +67,7 @@ const About = () => {
                   </div>
                 </div>
 
-                <div
-                  className="flex items-start space-x-4"
-                  data-animate="fade-in-up"
-                  data-animate-delay="0.6s"
-                  data-animate-duration="0.9s"
-                >
+                <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <BookOpen className="h-6 w-6 text-gold" />
                   </div>
@@ -100,12 +79,7 @@ const About = () => {
                   </div>
                 </div>
 
-                <div
-                  className="flex items-start space-x-4"
-                  data-animate="fade-in-up"
-                  data-animate-delay="0.75s"
-                  data-animate-duration="0.9s"
-                >
+                <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <UserCheck className="h-6 w-6 text-gold" />
                   </div>

@@ -53,12 +53,7 @@ const Contact = () => {
   return (
     <section id="contato" className="py-24 bg-paper-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className="text-center max-w-3xl mx-auto mb-16 opacity-0"
-          data-animate="fade-in-up"
-          data-animate-delay="0.2s"
-          data-animate-duration="1.1s"
-        >
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-gold font-semibold uppercase tracking-wider text-sm">
             {contactCopy.sectionTitle}
           </span>
@@ -71,15 +66,10 @@ const Contact = () => {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6 mb-16">
             {contactInfo.map((info, index) => {
-              const delay = (index + 1) * 0.15;
-              const animationDelay = `${delay}s`;
               return (
                 <Card
                   key={info.title}
-                  className="group hover:shadow-xl transition-all duration-300 border-none bg-white hover:-translate-y-1 opacity-0"
-                  data-animate="fade-in-up"
-                  data-animate-delay={animationDelay}
-                  data-animate-duration="0.85s"
+                  className="group hover:shadow-xl transition-all duration-300 border-none bg-white hover:-translate-y-1"
                 >
                   <CardContent className="p-8">
                     <div className="text-center mb-6">
@@ -143,12 +133,7 @@ const Contact = () => {
           </div>
 
           {/* Location Section */}
-          <div
-            className="mb-12 opacity-0"
-            data-animate="fade-in-up"
-            data-animate-delay="0.5s"
-            data-animate-duration="1.1s"
-          >
+          <div className="mb-12">
             <h3 className="text-3xl font-serif font-bold text-burgundy-dark text-center mb-8">
               Onde nos encontrar
             </h3>

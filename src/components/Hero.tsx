@@ -24,21 +24,17 @@ const Hero = () => {
         <div className="max-w-3xl">
           <h1
             className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-paper-light mb-6 leading-tight"
-            data-animate="fade-in-up-slow"
-            data-animate-delay="0.2s"
           >
             {heroCopy.headline}
           </h1>
 
           <p
             className="text-xl sm:text-2xl text-paper/90 mb-6 leading-relaxed"
-            data-animate="fade-in-up-slow"
-            data-animate-delay="0.5s"
           >
             {heroCopy.subheadline}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4" data-animate="fade-in-up-slow" data-animate-delay="0.8s">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
               className="bg-gold hover:bg-gold-light text-burgundy-dark font-semibold text-lg px-8 py-6 transition-all duration-300 shadow-lg hover:shadow-xl group"

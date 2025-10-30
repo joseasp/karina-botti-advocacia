@@ -70,12 +70,7 @@ const Experience = () => {
   return (
     <section id="experiencia" className="py-24 bg-burgundy-dark">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className="text-center max-w-3xl mx-auto mb-16 opacity-0"
-          data-animate="fade-in-up"
-          data-animate-delay="0.2s"
-          data-animate-duration="1.1s"
-        >
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-gold font-semibold uppercase tracking-wider text-sm">
             Experiência
           </span>
@@ -87,12 +82,7 @@ const Experience = () => {
           </p>
         </div>
 
-        <div
-          className="max-w-6xl mx-auto opacity-0"
-          data-animate="fade-in-up"
-          data-animate-delay="0.4s"
-          data-animate-duration="1.1s"
-        >
+        <div className="max-w-6xl mx-auto">
           <Carousel
             opts={{
               align: "start",
@@ -165,12 +155,7 @@ const Experience = () => {
           </Carousel>
         </div>
 
-        <div
-          className="mt-16 max-w-4xl mx-auto bg-burgundy/30 border border-gold/20 rounded-2xl p-8 opacity-0"
-          data-animate="fade-in-up"
-          data-animate-delay="0.6s"
-          data-animate-duration="1.1s"
-        >
+        <div className="mt-16 max-w-4xl mx-auto bg-burgundy/30 border border-gold/20 rounded-2xl p-8">
           <p className="text-paper/90 text-lg leading-relaxed text-center">
             Com uma trajetória consolidada em Direito Público, oferece assessoria técnica completa em licitações, contratos administrativos, processos disciplinares e redação legislativa — sempre pautada pela ética, eficiência e compromisso com a legalidade.
           </p>

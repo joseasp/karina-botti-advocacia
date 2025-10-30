@@ -51,11 +51,7 @@ const Areas = () => {
   return (
     <section id="areas" className="py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className="text-center max-w-3xl mx-auto mb-16"
-          data-animate="fade-in-up"
-          data-animate-delay="0.2s"
-        >
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-primary font-semibold uppercase tracking-wider text-sm">
             Áreas de Atuação
           </span>
@@ -67,12 +63,7 @@ const Areas = () => {
           </p>
         </div>
 
-        <div
-          className="max-w-6xl mx-auto"
-          data-animate="fade-in-up"
-          data-animate-delay="0.4s"
-          data-animate-duration="1.1s"
-        >
+        <div className="max-w-6xl mx-auto">
           <Carousel
             opts={{
               align: "center",

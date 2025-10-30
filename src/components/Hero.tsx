@@ -19,7 +19,7 @@ const Hero = () => {
           src={heroImage} 
           alt="Karina Botti Advocacia" 
           className="w-full h-full object-cover animate-fade-in"
-          style={{ animationDuration: '1.2s' }}
+          style={{ animationDuration: '1.2s', animationFillMode: 'both' }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-burgundy-dark/95 via-burgundy-dark/80 to-burgundy/60" />
       </div>

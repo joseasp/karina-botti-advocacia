@@ -20,7 +20,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image Column */}
-            <div className="relative">
+            <div className="relative scroll-animate-left">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={karinaPortrait}
@@ -40,7 +40,7 @@ const About = () => {
             </div>
 
             {/* Content Column */}
-            <div>
+            <div className="scroll-animate-right delay-200">
               <span className="text-gold font-semibold uppercase tracking-wider text-sm">
                 Sobre a Advogada
               </span>

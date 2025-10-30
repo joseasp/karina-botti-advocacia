@@ -51,7 +51,7 @@ const Areas = () => {
   return (
     <section id="areas" className="py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 scroll-animate">
           <span className="text-primary font-semibold uppercase tracking-wider text-sm">
             Áreas de Atuação
           </span>
@@ -63,7 +63,7 @@ const Areas = () => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto scroll-animate delay-200">
           <Carousel
             opts={{
               align: "center",

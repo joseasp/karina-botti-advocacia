@@ -53,7 +53,7 @@ const Contact = () => {
   return (
     <section id="contato" className="py-24 bg-paper-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 scroll-animate">
           <span className="text-gold font-semibold uppercase tracking-wider text-sm">
             {contactCopy.sectionTitle}
           </span>
@@ -133,7 +133,7 @@ const Contact = () => {
           </div>
 
           {/* Location Section */}
-          <div className="mb-12">
+          <div className="mb-12 scroll-animate delay-200">
             <h3 className="text-3xl font-serif font-bold text-burgundy-dark text-center mb-8">
               Onde nos encontrar
             </h3>

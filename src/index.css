@@ -218,6 +218,12 @@ All colors MUST be HSL.
     animation: fade-in 0.8s ease-out;
     opacity: 0;
   }
+  
+  /* Utility para manter elementos visíveis */
+  .opacity-100 {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 
   /* Delay utilities */
   .delay-100 { transition-delay: 0.1s; }

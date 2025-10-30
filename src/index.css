@@ -153,41 +153,41 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Scroll animations - CSS puro sem flash */
+  /* Scroll animations - elementos começam invisíveis */
   .scroll-animate {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0;
+    transform: translateY(30px);
   }
 
   .scroll-animate.animate-in {
-    animation: slide-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: slide-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .scroll-animate-slow {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0;
+    transform: translateY(40px);
   }
 
   .scroll-animate-slow.animate-in {
-    animation: slide-up-slow 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: slide-up-slow 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .scroll-animate-left {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 0;
+    transform: translateX(-40px);
   }
 
   .scroll-animate-left.animate-in {
-    animation: slide-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: slide-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .scroll-animate-right {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 0;
+    transform: translateX(40px);
   }
 
   .scroll-animate-right.animate-in {
-    animation: slide-right 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: slide-right 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   /* Keyframes para scroll animations */

@@ -126,6 +126,30 @@ All colors MUST be HSL.
   html {
     scroll-behavior: smooth;
   }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-paper-light;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-burgundy-soft rounded-full;
+    transition: background-color 0.2s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-burgundy-dark;
+  }
+  
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--burgundy-soft)) hsl(var(--paper-light));
+  }
 }
 
 @layer utilities {

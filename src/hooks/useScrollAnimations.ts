@@ -21,6 +21,18 @@ export const useScrollAnimations = () => {
         return;
       }
 
+      // Apply delay if specified
+      const delay = element.dataset.animateDelay;
+      if (delay) {
+        element.style.setProperty('--animate-delay', delay);
+      }
+
+      // Apply duration if specified
+      const duration = element.dataset.animateDuration;
+      if (duration) {
+        element.style.setProperty('--animate-duration', duration);
+      }
+
       // Apply animation class
       const animationClass = `animate-${animationType}`;
       element.classList.add(animationClass);

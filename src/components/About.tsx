@@ -20,7 +20,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image Column */}
-            <div>
+            <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={karinaPortrait}

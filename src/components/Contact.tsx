@@ -1,21 +1,31 @@
-import { Mail, MapPin, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { Mail, MapPin, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import WhatsappIcon from "@/components/icons/WhatsappIcon";
 
 const contactInfo = [
   {
-    icon: MessageCircle,
     title: "WhatsApp",
     value: "(33) 99816-9207",
+    displayValue: "(33) 99816-9207",
+    copyValue: "33998169207",
     href: "https://wa.me/5533998169207",
     color: "text-[#25D366]",
+    bgColor: "bg-[#25D366]/10",
+    buttonText: "Falar no WhatsApp",
+    isWhatsApp: true,
   },
   {
-    icon: Mail,
     title: "E-mail",
     value: "karinabottiadv@gmail.com",
+    displayValue: "karinabottiadv@gmail.com",
+    copyValue: "karinabottiadv@gmail.com",
     href: "mailto:karinabottiadv@gmail.com",
     color: "text-gold",
+    bgColor: "bg-gold/10",
+    buttonText: "Enviar E-mail",
+    isWhatsApp: false,
   },
 ];
 
@@ -24,12 +34,21 @@ const contactCopy = {
   heading: "Agende sua consulta",
   intro:
     "Estou à disposição para entender suas necessidades jurídicas e oferecer soluções fundamentadas.",
-  ctaHeading: "Pronto para iniciar?",
-  ctaDescription:
-    "Envie uma mensagem e agende uma conversa inicial para avaliarmos suas demandas com sigilo e clareza.",
 };
 
 const Contact = () => {
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const copyToClipboard = async (text: string, index: number) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedIndex(index);
+      setTimeout(() => setCopiedIndex(null), 2000);
+    } catch (err) {
+      console.error("Falha ao copiar:", err);
+    }
+  };
+
   return (
     <section id="contato" className="py-24 bg-paper-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +70,6 @@ const Contact = () => {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6 mb-16">
             {contactInfo.map((info, index) => {
-              const Icon = info.icon;
               const delay = (index + 1) * 0.15;
               const animationDelay = `${delay}s`;
               return (
@@ -62,23 +80,61 @@ const Contact = () => {
                   data-animate-delay={animationDelay}
                   data-animate-duration="0.85s"
                 >
-                  <CardContent className="p-8 text-center">
-                    <div
-                      className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${
-                        info.title === "WhatsApp" ? "bg-[#25D366]/10" : "bg-gold/10"
-                      }`}
-                    >
-                      <Icon className={`h-8 w-8 ${info.color}`} />
+                  <CardContent className="p-8">
+                    <div className="text-center mb-6">
+                      <div
+                        className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${info.bgColor}`}
+                      >
+                        {info.isWhatsApp ? (
+                          <WhatsappIcon className={`h-8 w-8 ${info.color}`} />
+                        ) : (
+                          <Mail className={`h-8 w-8 ${info.color}`} />
+                        )}
+                      </div>
+                      <h3 className="font-semibold text-burgundy-dark mb-2 text-lg">
+                        {info.title}
+                      </h3>
+                      <p className="text-base text-muted-foreground mb-4">
+                        {info.displayValue}
+                      </p>
                     </div>
-                    <h3 className="font-semibold text-burgundy-dark mb-2 text-lg">
-                      {info.title}
-                    </h3>
-                    <a
-                      href={info.href}
-                      className="text-base text-muted-foreground hover:text-gold transition-colors"
-                    >
-                      {info.value}
-                    </a>
+
+                    <div className="flex gap-2">
+                      <Button
+                        size="lg"
+                        className={`flex-1 ${
+                          info.isWhatsApp
+                            ? "bg-[#25D366] hover:bg-[#20BD5A] text-white"
+                            : "bg-gold hover:bg-gold-light text-burgundy-dark"
+                        } font-semibold transition-all duration-300`}
+                        asChild
+                      >
+                        <a
+                          href={info.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {info.buttonText}
+                        </a>
+                      </Button>
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="border-2 border-input hover:bg-accent relative"
+                        onClick={() => copyToClipboard(info.copyValue, index)}
+                      >
+                        {copiedIndex === index ? (
+                          <Check className="h-5 w-5 text-green-600" />
+                        ) : (
+                          <Copy className="h-5 w-5" />
+                        )}
+                        {copiedIndex === index && (
+                          <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                            Copiado!
+                          </span>
+                        )}
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               );
@@ -159,47 +215,6 @@ const Contact = () => {
                   title="Avenida Manoel Calhau, 245 - Conselheiro Pena - MG"
                 ></iframe>
               </div>
-            </div>
-          </div>
-
-          <div
-            className="bg-burgundy-dark rounded-2xl p-8 md:p-12 text-center opacity-0"
-            data-animate="fade-in-up"
-            data-animate-delay="0.6s"
-            data-animate-duration="1.1s"
-          >
-            <h3 className="text-3xl font-serif font-bold text-paper-light mb-4">
-              {contactCopy.ctaHeading}
-            </h3>
-            <p className="text-paper/80 text-lg mb-8 max-w-2xl mx-auto">
-              {contactCopy.ctaDescription}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-gold hover:bg-gold-light text-burgundy-dark font-semibold text-lg px-8 transition-all duration-300"
-                asChild
-              >
-                <a
-                  href="https://wa.me/5533998169207"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Falar no WhatsApp
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-paper-light text-paper-light hover:bg-paper-light hover:text-burgundy-dark font-semibold text-lg px-8"
-                asChild
-              >
-                <a href="mailto:karinabottiadv@gmail.com">
-                  <Mail className="mr-2 h-5 w-5" />
-                  Enviar e-mail
-                </a>
-              </Button>
             </div>
           </div>
         </div>

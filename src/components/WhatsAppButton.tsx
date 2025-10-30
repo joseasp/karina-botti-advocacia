@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import WhatsappIcon from "@/components/icons/WhatsappIcon";
 
 const WhatsAppButton = () => {
   return (
@@ -10,12 +10,9 @@ const WhatsAppButton = () => {
       aria-label="Falar no WhatsApp"
     >
       <div className="relative">
-        {/* Pulse animation ring */}
-        <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div>
-        
-        {/* Button */}
-        <div className="relative bg-[#25D366] hover:bg-[#20BD5A] text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110">
-          <MessageCircle className="h-7 w-7" strokeWidth={2.5} />
+        {/* Button with subtle pulse */}
+        <div className="relative bg-[#25D366] hover:bg-[#20BD5A] text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 animate-subtle-pulse">
+          <WhatsappIcon className="h-7 w-7" />
         </div>
       </div>
       

@@ -208,43 +208,30 @@ All colors MUST be HSL.
     }
   }
 
-  /* Animation classes */
+  /* Animation classes with support for CSS variables */
   .animate-fade-in-up {
-    opacity: 0;
-    animation: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fade-in-up var(--animate-duration, 0.9s) cubic-bezier(0.16, 1, 0.3, 1) var(--animate-delay, 0s) forwards;
   }
 
   .animate-fade-in-up-slow {
-    opacity: 0;
-    animation: fade-in-up-slow 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fade-in-up-slow var(--animate-duration, 1.6s) cubic-bezier(0.16, 1, 0.3, 1) var(--animate-delay, 0s) forwards;
   }
 
   .animate-fade-in {
-    opacity: 0;
-    animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fade-in var(--animate-duration, 0.8s) cubic-bezier(0.16, 1, 0.3, 1) var(--animate-delay, 0s) forwards;
   }
 
   .animate-slide-in-left {
-    opacity: 0;
-    animation: slide-in-left 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slide-in-left var(--animate-duration, 0.9s) cubic-bezier(0.16, 1, 0.3, 1) var(--animate-delay, 0s) forwards;
   }
 
   .animate-slide-in-right {
-    opacity: 0;
-    animation: slide-in-right 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slide-in-right var(--animate-duration, 0.9s) cubic-bezier(0.16, 1, 0.3, 1) var(--animate-delay, 0s) forwards;
   }
 
-  /* Support for custom delays via data attributes */
+  /* Initial state for elements with animations */
   [data-animate] {
     opacity: 0;
-  }
-
-  [data-animate][data-animate-delay] {
-    animation-delay: var(--animate-delay, 0s);
-  }
-
-  [data-animate][data-animate-duration] {
-    animation-duration: var(--animate-duration, 0.9s);
   }
 
   /* Subtle pulse animation for WhatsApp button */

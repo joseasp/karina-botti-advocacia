@@ -21,7 +21,6 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image Column */}
             <div
-              className="relative opacity-0"
               data-animate="slide-in-left"
               data-animate-delay="0.1s"
               data-animate-duration="1.2s"
@@ -35,7 +34,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-burgundy-dark/40 to-transparent" />
               </div>
               <div
-                className="absolute -bottom-6 -right-6 bg-gold text-burgundy-dark p-6 rounded-xl shadow-xl opacity-0"
+                className="absolute -bottom-6 -right-6 bg-gold text-burgundy-dark p-6 rounded-xl shadow-xl"
                 data-animate="fade-in-up"
                 data-animate-delay="0.5s"
                 data-animate-duration="1s"
@@ -49,7 +48,6 @@ const About = () => {
 
             {/* Content Column */}
             <div
-              className="opacity-0"
               data-animate="slide-in-right"
               data-animate-delay="0.25s"
               data-animate-duration="1.2s"
@@ -69,7 +67,7 @@ const About = () => {
 
               <div className="space-y-4">
                 <div
-                  className="flex items-start space-x-4 opacity-0"
+                  className="flex items-start space-x-4"
                   data-animate="fade-in-up"
                   data-animate-delay="0.45s"
                   data-animate-duration="0.9s"
@@ -86,7 +84,7 @@ const About = () => {
                 </div>
 
                 <div
-                  className="flex items-start space-x-4 opacity-0"
+                  className="flex items-start space-x-4"
                   data-animate="fade-in-up"
                   data-animate-delay="0.6s"
                   data-animate-duration="0.9s"
@@ -103,7 +101,7 @@ const About = () => {
                 </div>
 
                 <div
-                  className="flex items-start space-x-4 opacity-0"
+                  className="flex items-start space-x-4"
                   data-animate="fade-in-up"
                   data-animate-delay="0.75s"
                   data-animate-duration="0.9s"

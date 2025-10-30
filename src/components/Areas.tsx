@@ -68,7 +68,7 @@ const Areas = () => {
         </div>
 
         <div
-          className="max-w-6xl mx-auto opacity-0"
+          className="max-w-6xl mx-auto"
           data-animate="fade-in-up"
           data-animate-delay="0.4s"
           data-animate-duration="1.1s"

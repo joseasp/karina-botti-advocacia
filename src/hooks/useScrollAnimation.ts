@@ -16,21 +16,9 @@ export const useScrollAnimation = () => {
       });
     }, observerOptions);
 
-    // Executa SÍNCRONAMENTE para evitar qualquer flash
+    // Anima todos os elementos ao scroll
     const elements = document.querySelectorAll(".scroll-animate, .scroll-animate-slow, .scroll-animate-left, .scroll-animate-right");
-    elements.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      const isInInitialView = rect.top < window.innerHeight - 100;
-      
-      if (isInInitialView) {
-        // Remove a classe de animação e torna visível imediatamente
-        el.classList.remove("scroll-animate", "scroll-animate-slow", "scroll-animate-left", "scroll-animate-right");
-        el.classList.add("opacity-100");
-      } else {
-        // Observa apenas elementos fora do viewport
-        observer.observe(el);
-      }
-    });
+    elements.forEach((el) => observer.observe(el));
 
     return () => {
       observer.disconnect();

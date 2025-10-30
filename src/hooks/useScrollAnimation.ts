@@ -11,12 +11,13 @@ export const useScrollAnimation = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-in");
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
     // Observe all elements with scroll-animate class
-    const elements = document.querySelectorAll(".scroll-animate");
+    const elements = document.querySelectorAll(".scroll-animate, .scroll-animate-slow, .scroll-animate-left, .scroll-animate-right");
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();

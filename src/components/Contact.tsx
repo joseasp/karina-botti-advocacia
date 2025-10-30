@@ -38,6 +38,7 @@ const contactCopy = {
 
 const Contact = () => {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   const copyToClipboard = async (text: string, index: number) => {
     try {
@@ -202,18 +203,56 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              {/* Google Maps Embed */}
+              {/* Google Maps - Click to Load */}
               <div className="rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px]">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.7!2d-41.49!3d-19.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAvenida+Manoel+Calhau,+245,+Conselheiro+Pena+-+MG,+35240-000!5e0!3m2!1spt-BR!2sbr!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, minHeight: "400px" }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Avenida Manoel Calhau, 245 - Conselheiro Pena - MG"
-                ></iframe>
+                {!mapLoaded ? (
+                  <div className="bg-paper-light h-full min-h-[400px] flex flex-col items-center justify-center p-8 space-y-6">
+                    <div className="w-16 h-16 rounded-full bg-burgundy-light/10 flex items-center justify-center">
+                      <MapPin className="h-8 w-8 text-burgundy" />
+                    </div>
+                    
+                    <div className="space-y-2 text-center">
+                      <h4 className="text-lg font-semibold text-burgundy-dark">
+                        Visualizar Localização
+                      </h4>
+                      <div className="text-burgundy-medium">
+                        <p className="flex items-center justify-center gap-2">
+                          <MapPin className="h-4 w-4" />
+                          Av. Manoel Calhau, 245
+                        </p>
+                        <p className="text-sm">Conselheiro Pena - MG</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-900 max-w-md">
+                      <p className="font-medium mb-1">⚠️ Conteúdo de terceiros (Google Maps)</p>
+                      <p className="text-xs leading-relaxed">
+                        Ao carregar este mapa, o Google poderá coletar dados técnicos (ex.: endereço IP). 
+                        O uso está sujeito à política de privacidade do Google.
+                      </p>
+                    </div>
+
+                    <Button
+                      onClick={() => setMapLoaded(true)}
+                      size="lg"
+                      className="w-full sm:w-auto"
+                    >
+                      <MapPin className="h-4 w-4 mr-2" />
+                      Carregar Mapa do Google
+                    </Button>
+                  </div>
+                ) : (
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.7!2d-41.49!3d-19.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAvenida+Manoel+Calhau,+245,+Conselheiro+Pena+-+MG,+35240-000!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, minHeight: "400px" }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Avenida Manoel Calhau, 245 - Conselheiro Pena - MG"
+                  />
+                )}
               </div>
             </div>
           </div>

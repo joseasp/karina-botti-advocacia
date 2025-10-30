@@ -100,21 +100,47 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-burgundy-medium pt-8">
-            <p className="text-paper/60 text-sm">
-              &copy; {currentYear} Karina Botti Advocacia. Todos os direitos reservados.
-            </p>
-            <p className="text-paper/60 text-sm mt-2">
-              Criado por{" "}
+          {/* Privacy Disclaimer */}
+          <div className="border-t border-burgundy-medium pt-8 pb-6">
+            <h4 className="font-semibold text-paper-light mb-3">
+              Privacidade (LGPD)
+            </h4>
+            <p className="text-paper/70 text-sm leading-relaxed mb-3">
+              Este site não coleta dados pessoais por formulários ou analytics. 
+              Ao acessar links externos (WhatsApp, Google Maps, Instagram), aplicam-se 
+              as políticas de privacidade desses provedores. Para dúvidas ou solicitações 
+              sobre privacidade, entre em contato pelo e-mail{" "}
               <a
-                href="https://wa.me/5533998572879"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gold transition-colors duration-200"
+                href="mailto:karinabottiadv@gmail.com"
+                className="text-gold hover:text-gold-light transition-colors"
               >
-                José Apolinário
+                karinabottiadv@gmail.com
               </a>
+              .
             </p>
+            <p className="text-paper/60 text-xs">
+              Última atualização: 11/2025
+            </p>
+          </div>
+
+          {/* Copyright */}
+          <div className="border-t border-burgundy-medium pt-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+              <p className="text-paper/60 text-sm">
+                &copy; {currentYear} Karina Botti Advocacia. Todos os direitos reservados. | OAB/MG 111.637
+              </p>
+              <p className="text-paper/60 text-sm">
+                Criado por{" "}
+                <a
+                  href="https://wa.me/5533998572879"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold transition-colors duration-200"
+                >
+                  José Apolinário
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

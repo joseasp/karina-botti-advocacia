@@ -76,9 +76,8 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div>
-              <h4 className="font-semibold text-paper-light mb-4">Contato</h4>
+            <h4 className="font-semibold text-paper-light mb-4">Contato</h4>
               <ul className="space-y-2 text-sm text-paper/70">
-                <li>OAB/MG 111.637</li>
                 <li>karinabottiadv@gmail.com</li>
                 <li>(33) 99816-9207</li>
                 <li>Conselheiro Pena – MG</li>

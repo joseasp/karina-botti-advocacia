@@ -8,9 +8,10 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
-import alvarengaLogo from "@/assets/logos/alvarenga.png";
-import cuparaqueLogo from "@/assets/logos/cuparaque.jpg";
-import galileiaLogo from "@/assets/logos/galileia.png";
+import alvarengaLogo from "@/assets/logos/alvarenga.svg";
+import cuparaqueLogo from "@/assets/logos/cuparaque.svg";
+import galileiaLogo from "@/assets/logos/galileia.svg";
+import goiabeiraLogo from "@/assets/logos/goiabeira.svg";
 
 interface Experience {
   name: string;
@@ -40,6 +41,7 @@ const experiences: Experience[] = [
   {
     name: "Goiabeira",
     type: "Prefeitura",
+    logo: goiabeiraLogo,
     description:
       "Consultoria nos setores de tributação, recursos humanos e SAAE; análise de legislação e emissão de pareceres.",
     period: "2018 a 2019",
@@ -166,4 +168,3 @@ const Experience = () => {
 };
 
 export default Experience;
-

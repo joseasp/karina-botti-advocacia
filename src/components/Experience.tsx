@@ -152,8 +152,8 @@ const Experience = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-12 bg-burgundy/60 border-gold/40 hover:bg-burgundy/80 hover:border-gold text-gold" />
-            <CarouselNext className="hidden md:flex -right-12 bg-burgundy/60 border-gold/40 hover:bg-burgundy/80 hover:border-gold text-gold" />
+            <CarouselPrevious className="!left-2 md:!-left-12 z-10 bg-burgundy/60 border-gold/40 hover:bg-burgundy/80 hover:border-gold text-gold shadow-md md:shadow-none" />
+            <CarouselNext className="!right-2 md:!-right-12 z-10 bg-burgundy/60 border-gold/40 hover:bg-burgundy/80 hover:border-gold text-gold shadow-md md:shadow-none" />
           </Carousel>
         </div>
 

@@ -131,11 +131,11 @@ const Testimonials = () => {
           ]}
           className="w-full"
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-4 md:grid md:grid-rows-2 md:gap-4 md:auto-cols-[33.333%] md:grid-flow-col">
             {testimonials.map((testimonial) => (
               <CarouselItem 
                 key={testimonial.id}
-                className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+                className="pl-4 basis-full sm:basis-1/2 lg:basis-auto md:pl-0"
               >
                 <div
                   className={cn(
@@ -185,25 +185,25 @@ const Testimonials = () => {
             ))}
           </CarouselContent>
 
-          {/* Setas de navegação grandes e estilizadas */}
+          {/* Setas de navegação menores */}
           <CarouselPrevious 
             className="
-              -left-4 md:-left-12 
-              w-12 h-12 md:w-16 md:h-16
-              bg-white hover:bg-burgundy-dark hover:text-white
-              border-2 border-burgundy-dark
-              shadow-lg
+              -left-2 md:-left-6
+              w-8 h-8 md:w-10 md:h-10
+              bg-white/90 hover:bg-burgundy-dark hover:text-white
+              border border-burgundy-dark/20
+              shadow-md
               transition-all duration-300
               disabled:opacity-30
             " 
           />
           <CarouselNext 
             className="
-              -right-4 md:-right-12
-              w-12 h-12 md:w-16 md:h-16
-              bg-white hover:bg-burgundy-dark hover:text-white
-              border-2 border-burgundy-dark
-              shadow-lg
+              -right-2 md:-right-6
+              w-8 h-8 md:w-10 md:h-10
+              bg-white/90 hover:bg-burgundy-dark hover:text-white
+              border border-burgundy-dark/20
+              shadow-md
               transition-all duration-300
               disabled:opacity-30
             " 

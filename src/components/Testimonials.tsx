@@ -18,7 +18,7 @@ const testimonials: Testimonial[] = [
     name: "Geovania Oliveira",
     role: "Ex-Prefeita e Vereadora atual",
     organization: "Cuparaque",
-    keyPhrase: "Conheço bem a competência da senhora",
+    keyPhrase: "Já trabalhamos juntas... e agora juntas na Câmara. Feliz porque eu já conheço bem a competência da senhora.",
     fullText: "Quando eu fiquei sabendo que a senhora ia trabalhar aqui na Câmara Municipal eu fiquei muito feliz... já trabalhamos juntas no ano de 2013 a 2016 na gestão que fui prefeita... conheço bem a competência da senhora."
   },
   {
@@ -26,7 +26,7 @@ const testimonials: Testimonial[] = [
     name: "Moacir Duca",
     role: "Presidente da Câmara",
     organization: "Alvarenga",
-    keyPhrase: "Fomos privilegiados com seu trabalho",
+    keyPhrase: "Fomos privilegiados com seu trabalho e conseguimos realizar projetos importantes e até histórico.",
     fullText: "Estávamos hoje lembrando do seu belo trabalho conosco aqui no legislativo de Alvarenga... como presidente da Câmara e os demais vereadores fomos privilegiados com seu trabalho... conseguimos realizar projetos importantes e até histórico... reconstrução do regimento interno e o projeto Câmara Itinerante."
   },
   {
@@ -34,7 +34,7 @@ const testimonials: Testimonial[] = [
     name: "Salome Araujo",
     role: "Ex-Presidente da Câmara (2012)",
     organization: "Alvarenga",
-    keyPhrase: "Contribuição valiosa na elaboração da Lei Orgânica",
+    keyPhrase: "Sua presteza, conhecimento jurídico, responsabilidade e atenção com todos marcaram aquele tempo.",
     fullText: "Lembro quando iniciou o trabalho comigo na Câmara?... Sua presteza, conhecimento jurídico, responsabilidade e atenção com todos marcaram aquele tempo. Você deu uma contribuição valiosa na elaboração da Lei Orgânica."
   },
   {
@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
     name: "Helcio Laureano da Silva",
     role: "Vereador, 1º Secretário da Mesa Diretora (2025/2028)",
     organization: "Cuparaque",
-    keyPhrase: "Grande evolução em menos de um ano",
+    keyPhrase: "Em menos um ano de serviços prestados já se vê grande evolução e melhorias.",
     fullText: "Parabenizo a Dra. Karina pelo brilhante trabalho prestado à Câmara Municipal de Cuparaque. Destaco a sua organização e observância às Leis orgânicas e regimento interno... Em menos um ano de serviços prestados junto à Câmara já se vê grande evolução."
   },
   {
@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
     name: "José Carlos Afonso (Ze Carlin)",
     role: "Secretário da Mesa Diretora (2025/2028)",
     organization: "Cuparaque",
-    keyPhrase: "Profissionalismo em todos os momentos",
+    keyPhrase: "Seu senso de comprometimento faz toda diferença para entrega de bons resultados.",
     fullText: "Uma advogada que demonstrou grande conhecimento e profissionalismo em todos os momentos, sua positividade agrega muito valor à nossa equipe. Seu senso de comprometimento faz toda diferença."
   },
   {
@@ -58,7 +58,7 @@ const testimonials: Testimonial[] = [
     name: "Kauan Souza Rodrigues",
     role: "Presidente da Câmara (2025/2026)",
     organization: "Alvarenga",
-    keyPhrase: "Ótima profissional, mantém nossa câmara organizada",
+    keyPhrase: "Já escutei falar bem e agora sou prova: ótima profissional.",
     fullText: "Dra Karina, obrigado pelos serviços prestados tem ajudado demais a manter nossa câmara organizada e fazendo o certo! Já escutei falar bem e agora sou prova, ótima profissional."
   },
   {
@@ -66,7 +66,7 @@ const testimonials: Testimonial[] = [
     name: "Helcio Goiabeira",
     role: "Vereador",
     organization: "Goiabeira",
-    keyPhrase: "Ética, disposição e profissionalismo",
+    keyPhrase: "Você é uma guerreira sempre lutando por uma causa nobre.",
     fullText: "Falar do seu trabalho é fácil sua ética sua disposição e profissionalismo... sempre serei grato a você pela sua dedicação e seu desempenho. Você é uma guerreira sempre lutando por uma causa nobre."
   }
 ];
@@ -90,7 +90,7 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((testimonial) => {
             const isExpanded = expandedId === testimonial.id;
             
@@ -100,7 +100,7 @@ const Testimonials = () => {
                 onClick={() => handleCardClick(testimonial.id)}
                 className={`cursor-pointer transition-all duration-500 ease-in-out bg-background border-gold/20 hover:shadow-lg hover:border-gold/40 ${
                   isExpanded 
-                    ? 'md:col-span-2 lg:col-span-3 shadow-xl border-gold/60' 
+                    ? 'md:col-span-2 shadow-xl border-gold/60' 
                     : expandedId !== null 
                     ? 'opacity-60 scale-[0.98]' 
                     : ''
@@ -125,24 +125,39 @@ const Testimonials = () => {
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <h3 className={`font-semibold text-burgundy-dark mb-1 ${
-                        isExpanded ? 'text-xl md:text-2xl' : 'text-lg'
-                      }`}>
-                        {testimonial.name}
-                      </h3>
-                      <p className={`text-foreground/70 mb-2 ${
-                        isExpanded ? 'text-base' : 'text-sm'
-                      }`}>
-                        {testimonial.role}
-                      </p>
-                      <p className="text-xs text-gold font-medium mb-3">
-                        {testimonial.organization}
-                      </p>
+                      {!isExpanded ? (
+                        <>
+                          {/* Frase em destaque - PRIMEIRO */}
+                          <p className="text-base md:text-lg font-medium text-burgundy-dark mb-4 italic leading-relaxed">
+                            "{testimonial.keyPhrase}"
+                          </p>
 
-                      {!isExpanded && (
-                        <p className="text-sm italic text-foreground/80 line-clamp-2">
-                          "{testimonial.keyPhrase}"
-                        </p>
+                          {/* Nome/Cargo - DEPOIS, menor e discreto */}
+                          <div className="pt-3 border-t border-gold/20">
+                            <p className="text-sm font-semibold text-foreground/90">
+                              {testimonial.name}
+                            </p>
+                            <p className="text-xs text-foreground/60">
+                              {testimonial.role}
+                            </p>
+                            <p className="text-xs text-gold font-medium mt-1">
+                              {testimonial.organization}
+                            </p>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          {/* Estado expandido - layout tradicional */}
+                          <h3 className="text-xl md:text-2xl font-semibold text-burgundy-dark mb-1">
+                            {testimonial.name}
+                          </h3>
+                          <p className="text-base text-foreground/70 mb-2">
+                            {testimonial.role}
+                          </p>
+                          <p className="text-xs text-gold font-medium">
+                            {testimonial.organization}
+                          </p>
+                        </>
                       )}
                     </div>
                   </div>

@@ -139,50 +139,47 @@ const Testimonials = () => {
               >
                 <div
                   className={cn(
-                    "bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl",
+                    "bg-white rounded-xl shadow-lg p-4 md:p-5 transition-all duration-300 hover:shadow-xl",
                     "border-l-4 border-gold h-full flex flex-col",
                     // Alturas variadas para desktop/tablet
-                    testimonial.size === 'large' && "md:min-h-[340px]",
-                    testimonial.size === 'medium' && "md:min-h-[300px]",
-                    testimonial.size === 'small' && "md:min-h-[260px]",
+                    testimonial.size === 'large' && "md:min-h-[240px]",
+                    testimonial.size === 'medium' && "md:min-h-[200px]",
+                    testimonial.size === 'small' && "md:min-h-[160px]",
                     // Mobile: altura mínima fixa
-                    "min-h-[280px]"
+                    "min-h-[200px]"
                   )}
                 >
-                  {/* Frase em destaque - PRIMEIRO e PRINCIPAL */}
-                  <p className="text-base md:text-lg font-medium text-burgundy-dark mb-4 italic leading-relaxed flex-grow">
-                    "{testimonial.keyPhrase}"
-                  </p>
-                  
-                  {/* Separador visual */}
-                  <div className="border-t border-gold/20 pt-4 mt-auto">
-                    {/* Foto pequena circular e info */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-burgundy/10 flex items-center justify-center flex-shrink-0">
-                        {testimonial.photo ? (
-                          <img 
-                            src={testimonial.photo} 
-                            alt={testimonial.name} 
-                            className="w-10 h-10 rounded-full object-cover"
-                          />
-                        ) : (
-                          <User className="w-5 h-5 text-burgundy-dark" />
-                        )}
-                      </div>
-                      
-                      <div className="min-w-0">
-                        <p className="text-sm font-semibold text-burgundy-dark truncate">
-                          {testimonial.name}
-                        </p>
-                        <p className="text-xs text-foreground/60 truncate">
-                          {testimonial.role}
-                        </p>
-                        <p className="text-xs text-gold font-medium truncate">
-                          {testimonial.organization}
-                        </p>
-                      </div>
+                  {/* Nome/Cargo NO TOPO */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-burgundy/10 flex items-center justify-center flex-shrink-0">
+                      {testimonial.photo ? (
+                        <img 
+                          src={testimonial.photo} 
+                          alt={testimonial.name} 
+                          className="w-10 h-10 rounded-full object-cover"
+                        />
+                      ) : (
+                        <User className="w-5 h-5 text-burgundy-dark" />
+                      )}
+                    </div>
+                    
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-burgundy-dark truncate">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-xs text-foreground/60 truncate">
+                        {testimonial.role}
+                      </p>
+                      <p className="text-xs text-gold font-medium truncate">
+                        {testimonial.organization}
+                      </p>
                     </div>
                   </div>
+
+                  {/* Frase logo abaixo, sem separador */}
+                  <p className="text-sm md:text-base font-medium text-burgundy-dark italic leading-relaxed flex-grow">
+                    "{testimonial.keyPhrase}"
+                  </p>
                 </div>
               </CarouselItem>
             ))}

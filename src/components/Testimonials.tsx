@@ -1,6 +1,15 @@
-import { useState } from "react";
-import { Card } from "@/components/ui/card";
+import { useState, useEffect } from "react";
 import { User } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { cn } from "@/lib/utils";
 
 interface Testimonial {
   id: number;
@@ -10,6 +19,7 @@ interface Testimonial {
   keyPhrase: string;
   fullText: string;
   photo?: string;
+  size: 'small' | 'medium' | 'large';
 }
 
 const testimonials: Testimonial[] = [
@@ -19,7 +29,8 @@ const testimonials: Testimonial[] = [
     role: "Ex-Prefeita e Vereadora atual",
     organization: "Cuparaque",
     keyPhrase: "Já trabalhamos juntas... e agora juntas na Câmara. Feliz porque eu já conheço bem a competência da senhora.",
-    fullText: "Quando eu fiquei sabendo que a senhora ia trabalhar aqui na Câmara Municipal eu fiquei muito feliz... já trabalhamos juntas no ano de 2013 a 2016 na gestão que fui prefeita... conheço bem a competência da senhora."
+    fullText: "Quando eu fiquei sabendo que a senhora ia trabalhar aqui na Câmara Municipal eu fiquei muito feliz... já trabalhamos juntas no ano de 2013 a 2016 na gestão que fui prefeita... conheço bem a competência da senhora.",
+    size: 'large'
   },
   {
     id: 2,
@@ -27,7 +38,8 @@ const testimonials: Testimonial[] = [
     role: "Presidente da Câmara",
     organization: "Alvarenga",
     keyPhrase: "Fomos privilegiados com seu trabalho e conseguimos realizar projetos importantes e até histórico.",
-    fullText: "Estávamos hoje lembrando do seu belo trabalho conosco aqui no legislativo de Alvarenga... como presidente da Câmara e os demais vereadores fomos privilegiados com seu trabalho... conseguimos realizar projetos importantes e até histórico... reconstrução do regimento interno e o projeto Câmara Itinerante."
+    fullText: "Estávamos hoje lembrando do seu belo trabalho conosco aqui no legislativo de Alvarenga... como presidente da Câmara e os demais vereadores fomos privilegiados com seu trabalho... conseguimos realizar projetos importantes e até histórico... reconstrução do regimento interno e o projeto Câmara Itinerante.",
+    size: 'medium'
   },
   {
     id: 3,
@@ -35,7 +47,8 @@ const testimonials: Testimonial[] = [
     role: "Ex-Presidente da Câmara (2012)",
     organization: "Alvarenga",
     keyPhrase: "Sua presteza, conhecimento jurídico, responsabilidade e atenção com todos marcaram aquele tempo.",
-    fullText: "Lembro quando iniciou o trabalho comigo na Câmara?... Sua presteza, conhecimento jurídico, responsabilidade e atenção com todos marcaram aquele tempo. Você deu uma contribuição valiosa na elaboração da Lei Orgânica."
+    fullText: "Lembro quando iniciou o trabalho comigo na Câmara?... Sua presteza, conhecimento jurídico, responsabilidade e atenção com todos marcaram aquele tempo. Você deu uma contribuição valiosa na elaboração da Lei Orgânica.",
+    size: 'small'
   },
   {
     id: 4,
@@ -43,7 +56,8 @@ const testimonials: Testimonial[] = [
     role: "Vereador, 1º Secretário da Mesa Diretora (2025/2028)",
     organization: "Cuparaque",
     keyPhrase: "Em menos um ano de serviços prestados já se vê grande evolução e melhorias.",
-    fullText: "Parabenizo a Dra. Karina pelo brilhante trabalho prestado à Câmara Municipal de Cuparaque. Destaco a sua organização e observância às Leis orgânicas e regimento interno... Em menos um ano de serviços prestados junto à Câmara já se vê grande evolução."
+    fullText: "Parabenizo a Dra. Karina pelo brilhante trabalho prestado à Câmara Municipal de Cuparaque. Destaco a sua organização e observância às Leis orgânicas e regimento interno... Em menos um ano de serviços prestados junto à Câmara já se vê grande evolução.",
+    size: 'medium'
   },
   {
     id: 5,
@@ -51,7 +65,8 @@ const testimonials: Testimonial[] = [
     role: "Secretário da Mesa Diretora (2025/2028)",
     organization: "Cuparaque",
     keyPhrase: "Seu senso de comprometimento faz toda diferença para entrega de bons resultados.",
-    fullText: "Uma advogada que demonstrou grande conhecimento e profissionalismo em todos os momentos, sua positividade agrega muito valor à nossa equipe. Seu senso de comprometimento faz toda diferença."
+    fullText: "Uma advogada que demonstrou grande conhecimento e profissionalismo em todos os momentos, sua positividade agrega muito valor à nossa equipe. Seu senso de comprometimento faz toda diferença.",
+    size: 'large'
   },
   {
     id: 6,
@@ -59,7 +74,8 @@ const testimonials: Testimonial[] = [
     role: "Presidente da Câmara (2025/2026)",
     organization: "Alvarenga",
     keyPhrase: "Já escutei falar bem e agora sou prova: ótima profissional.",
-    fullText: "Dra Karina, obrigado pelos serviços prestados tem ajudado demais a manter nossa câmara organizada e fazendo o certo! Já escutei falar bem e agora sou prova, ótima profissional."
+    fullText: "Dra Karina, obrigado pelos serviços prestados tem ajudado demais a manter nossa câmara organizada e fazendo o certo! Já escutei falar bem e agora sou prova, ótima profissional.",
+    size: 'small'
   },
   {
     id: 7,
@@ -67,131 +83,153 @@ const testimonials: Testimonial[] = [
     role: "Vereador",
     organization: "Goiabeira",
     keyPhrase: "Você é uma guerreira sempre lutando por uma causa nobre.",
-    fullText: "Falar do seu trabalho é fácil sua ética sua disposição e profissionalismo... sempre serei grato a você pela sua dedicação e seu desempenho. Você é uma guerreira sempre lutando por uma causa nobre."
+    fullText: "Falar do seu trabalho é fácil sua ética sua disposição e profissionalismo... sempre serei grato a você pela sua dedicação e seu desempenho. Você é uma guerreira sempre lutando por uma causa nobre.",
+    size: 'medium'
   }
 ];
 
 const Testimonials = () => {
-  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const handleCardClick = (id: number) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   return (
-    <section className="py-20 bg-paper-light scroll-animate">
+    <section className="py-20 bg-gradient-to-br from-burgundy/5 via-paper-light to-gold/5 scroll-animate">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-burgundy-dark mb-4">
             Vozes que Confiam
           </h2>
           <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-            Depoimentos de gestores públicos que experimentaram excelência jurídica
+            O que dizem sobre o trabalho
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {testimonials.map((testimonial) => {
-            const isExpanded = expandedId === testimonial.id;
-            
-            return (
-              <Card
+        <Carousel
+          setApi={setApi}
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+              stopOnInteraction: true,
+              stopOnMouseEnter: true,
+            }),
+          ]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {testimonials.map((testimonial) => (
+              <CarouselItem 
                 key={testimonial.id}
-                onClick={() => handleCardClick(testimonial.id)}
-                className={`cursor-pointer transition-all duration-500 ease-in-out bg-background border-gold/20 hover:shadow-lg hover:border-gold/40 ${
-                  isExpanded 
-                    ? 'md:col-span-2 shadow-xl border-gold/60' 
-                    : expandedId !== null 
-                    ? 'opacity-60 scale-[0.98]' 
-                    : ''
-                }`}
+                className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
               >
-                <div className={`p-6 ${isExpanded ? 'md:p-8' : ''}`}>
-                  <div className={`flex gap-4 ${isExpanded ? 'md:gap-6 items-start' : 'items-center'}`}>
-                    {/* Photo */}
-                    <div className={`flex-shrink-0 rounded-full bg-burgundy/10 flex items-center justify-center border-2 border-gold/30 ${
-                      isExpanded ? 'w-20 h-20 md:w-24 md:h-24' : 'w-16 h-16'
-                    }`}>
-                      {testimonial.photo ? (
-                        <img 
-                          src={testimonial.photo} 
-                          alt={testimonial.name}
-                          className="w-full h-full rounded-full object-cover"
-                        />
-                      ) : (
-                        <User className={`text-burgundy-dark ${isExpanded ? 'w-10 h-10 md:w-12 md:h-12' : 'w-8 h-8'}`} />
-                      )}
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      {!isExpanded ? (
-                        <>
-                          {/* Frase em destaque - PRIMEIRO */}
-                          <p className="text-base md:text-lg font-medium text-burgundy-dark mb-4 italic leading-relaxed">
-                            "{testimonial.keyPhrase}"
-                          </p>
-
-                          {/* Nome/Cargo - DEPOIS, menor e discreto */}
-                          <div className="pt-3 border-t border-gold/20">
-                            <p className="text-sm font-semibold text-foreground/90">
-                              {testimonial.name}
-                            </p>
-                            <p className="text-xs text-foreground/60">
-                              {testimonial.role}
-                            </p>
-                            <p className="text-xs text-gold font-medium mt-1">
-                              {testimonial.organization}
-                            </p>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          {/* Estado expandido - layout tradicional */}
-                          <h3 className="text-xl md:text-2xl font-semibold text-burgundy-dark mb-1">
-                            {testimonial.name}
-                          </h3>
-                          <p className="text-base text-foreground/70 mb-2">
-                            {testimonial.role}
-                          </p>
-                          <p className="text-xs text-gold font-medium">
-                            {testimonial.organization}
-                          </p>
-                        </>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Expanded Content */}
-                  {isExpanded && (
-                    <div className="mt-6 md:mt-8 animate-in fade-in duration-500">
-                      <div className="relative bg-burgundy/5 rounded-lg p-6 md:p-8 border-l-4 border-gold">
-                        <svg 
-                          className="absolute top-4 left-4 w-8 h-8 text-gold/30" 
-                          fill="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-                        </svg>
-                        <p className="text-base md:text-lg text-foreground/90 leading-relaxed pl-8 italic">
-                          {testimonial.fullText}
+                <div
+                  className={cn(
+                    "bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl",
+                    "border-l-4 border-gold h-full flex flex-col",
+                    // Alturas variadas para desktop/tablet
+                    testimonial.size === 'large' && "md:min-h-[340px]",
+                    testimonial.size === 'medium' && "md:min-h-[300px]",
+                    testimonial.size === 'small' && "md:min-h-[260px]",
+                    // Mobile: altura mínima fixa
+                    "min-h-[280px]"
+                  )}
+                >
+                  {/* Frase em destaque - PRIMEIRO e PRINCIPAL */}
+                  <p className="text-base md:text-lg font-medium text-burgundy-dark mb-4 italic leading-relaxed flex-grow">
+                    "{testimonial.keyPhrase}"
+                  </p>
+                  
+                  {/* Separador visual */}
+                  <div className="border-t border-gold/20 pt-4 mt-auto">
+                    {/* Foto pequena circular e info */}
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-burgundy/10 flex items-center justify-center flex-shrink-0">
+                        {testimonial.photo ? (
+                          <img 
+                            src={testimonial.photo} 
+                            alt={testimonial.name} 
+                            className="w-10 h-10 rounded-full object-cover"
+                          />
+                        ) : (
+                          <User className="w-5 h-5 text-burgundy-dark" />
+                        )}
+                      </div>
+                      
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-burgundy-dark truncate">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-xs text-foreground/60 truncate">
+                          {testimonial.role}
+                        </p>
+                        <p className="text-xs text-gold font-medium truncate">
+                          {testimonial.organization}
                         </p>
                       </div>
-                      <p className="text-center text-sm text-foreground/60 mt-4">
-                        Clique novamente para fechar
-                      </p>
                     </div>
-                  )}
-
-                  {!isExpanded && (
-                    <p className="text-xs text-center text-foreground/50 mt-4">
-                      Clique para ler mais
-                    </p>
-                  )}
+                  </div>
                 </div>
-              </Card>
-            );
-          })}
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          {/* Setas de navegação grandes e estilizadas */}
+          <CarouselPrevious 
+            className="
+              -left-4 md:-left-12 
+              w-12 h-12 md:w-16 md:h-16
+              bg-white hover:bg-burgundy-dark hover:text-white
+              border-2 border-burgundy-dark
+              shadow-lg
+              transition-all duration-300
+              disabled:opacity-30
+            " 
+          />
+          <CarouselNext 
+            className="
+              -right-4 md:-right-12
+              w-12 h-12 md:w-16 md:h-16
+              bg-white hover:bg-burgundy-dark hover:text-white
+              border-2 border-burgundy-dark
+              shadow-lg
+              transition-all duration-300
+              disabled:opacity-30
+            " 
+          />
+        </Carousel>
+
+        {/* Indicadores de progresso (dots) */}
+        <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Navegação de depoimentos">
+          {Array.from({ length: count }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => api?.scrollTo(index)}
+              className={cn(
+                "h-2 rounded-full transition-all duration-300",
+                current === index 
+                  ? "w-8 bg-burgundy-dark" 
+                  : "w-2 bg-gold/30 hover:bg-gold/50"
+              )}
+              aria-label={`Ir para depoimento ${index + 1}`}
+              aria-current={current === index ? "true" : "false"}
+              role="tab"
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -53,9 +53,17 @@ export const TestimonialCard = ({ testimonial, onCardClick }: TestimonialCardPro
       </div>
 
       {/* Texto do depoimento */}
-      <p className="text-sm md:text-base font-medium text-burgundy-dark italic leading-relaxed flex-grow">
+      <p className="text-sm md:text-base font-medium text-burgundy-dark italic leading-relaxed flex-grow mb-3">
         "{testimonial.keyPhrase}"
       </p>
+
+      {/* Botão Leia Mais */}
+      <button
+        onClick={() => onCardClick(testimonial)}
+        className="text-sm font-semibold text-gold hover:text-burgundy-dark transition-colors duration-200 self-start"
+      >
+        Leia mais →
+      </button>
     </div>
   );
 };

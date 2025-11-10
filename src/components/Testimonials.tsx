@@ -87,14 +87,9 @@ const Testimonials = () => {
     ? [...testimonials, ...testimonials, ...testimonials]
     : testimonials;
 
-  const [carouselCards, setCarouselCards] = useState<Testimonial[]>([]);
+  // Inicializar direto com ordem normal
+  const [carouselCards] = useState<Testimonial[]>(allCards);
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
-
-  useEffect(() => {
-    // Inicializar com cards embaralhados
-    const shuffled = shuffleCards(allCards);
-    setCarouselCards(shuffled);
-  }, []);
 
   return (
     <section className="py-20 bg-gradient-to-br from-burgundy/5 via-paper-light to-gold/5 scroll-animate">
@@ -109,14 +104,16 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Carrossel único */}
-        <CarouselTrack
-          cards={carouselCards}
-          onVisibleChange={() => {}} // Não precisamos rastrear visibilidade
-          onCardClick={setSelectedTestimonial}
-          autoplayDelay={8000}
-          position="single"
-        />
+        {/* Carrossel com animação de entrada suave */}
+        <div className="animate-in fade-in duration-500">
+          <CarouselTrack
+            cards={carouselCards}
+            onVisibleChange={() => {}}
+            onCardClick={setSelectedTestimonial}
+            autoplayDelay={8000}
+            position="single"
+          />
+        </div>
       </div>
 
       <Dialog open={!!selectedTestimonial} onOpenChange={() => setSelectedTestimonial(null)}>

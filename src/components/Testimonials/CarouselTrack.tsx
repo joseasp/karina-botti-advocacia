@@ -80,27 +80,29 @@ export const CarouselTrack = ({
         {cards.map((testimonial, index) => (
           <CarouselItem
             key={`${position}-${testimonial.id}-${index}`}
-            className="pl-4 basis-full sm:basis-1/2 md:basis-1/4"
+            className="pl-4 basis-full sm:basis-1/2 md:basis-1/3"
           >
             <TestimonialCard testimonial={testimonial} onCardClick={onCardClick} />
           </CarouselItem>
         ))}
       </CarouselContent>
 
-      {/* Setas específicas desta trilha */}
+      {/* Setas com melhor visibilidade e tamanho */}
       <CarouselPrevious className={cn(
-        "absolute -left-4 top-1/2 -translate-y-1/2",
-        "w-8 h-8 md:w-9 md:h-9",
-        "bg-white/90 hover:bg-burgundy-dark hover:text-white",
-        "border border-burgundy-dark/20 shadow-md",
-        "transition-all duration-300"
+        "absolute left-0 top-1/2 -translate-y-1/2 z-10",
+        "w-10 h-10 md:w-12 md:h-12",
+        "bg-white hover:bg-burgundy-dark hover:text-white",
+        "border-2 border-burgundy-dark/20 shadow-lg",
+        "transition-all duration-300",
+        "disabled:opacity-50 disabled:cursor-not-allowed"
       )} />
       <CarouselNext className={cn(
-        "absolute -right-4 top-1/2 -translate-y-1/2",
-        "w-8 h-8 md:w-9 md:h-9",
-        "bg-white/90 hover:bg-burgundy-dark hover:text-white",
-        "border border-burgundy-dark/20 shadow-md",
-        "transition-all duration-300"
+        "absolute right-0 top-1/2 -translate-y-1/2 z-10",
+        "w-10 h-10 md:w-12 md:h-12",
+        "bg-white hover:bg-burgundy-dark hover:text-white",
+        "border-2 border-burgundy-dark/20 shadow-lg",
+        "transition-all duration-300",
+        "disabled:opacity-50 disabled:cursor-not-allowed"
       )} />
     </Carousel>
   );

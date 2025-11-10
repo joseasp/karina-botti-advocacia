@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Autoplay from "embla-carousel-autoplay";
 import { cn } from "@/lib/utils";
 
@@ -89,14 +90,15 @@ const testimonials: Testimonial[] = [
 ];
 
 const Testimonials = () => {
-  // Duplicar testimonials se houver menos de 12 para criar movimento fluido
-  const displayTestimonials = testimonials.length < 12 
-    ? [...testimonials, ...testimonials] 
+  // Triplicar testimonials se houver menos de 15 para criar movimento fluido
+  const displayTestimonials = testimonials.length < 15
+    ? [...testimonials, ...testimonials, ...testimonials]
     : testimonials;
 
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
 
   useEffect(() => {
     if (!api) return;
@@ -126,25 +128,30 @@ const Testimonials = () => {
           opts={{
             align: "start",
             loop: true,
+            duration: 25,
+            dragFree: false,
           }}
           plugins={[
             Autoplay({
-              delay: 7000,
+              delay: 8000,
               stopOnInteraction: false,
             }),
           ]}
-          className="w-full"
+          className="w-full overflow-hidden"
         >
-          <CarouselContent className="-ml-4 md:grid md:grid-rows-2 md:gap-4 md:auto-cols-[33.333%] md:grid-flow-col">
+          <CarouselContent className="-ml-4 md:grid md:grid-rows-2 md:gap-4 md:auto-cols-[50%] md:grid-flow-col">
             {displayTestimonials.map((testimonial, index) => (
               <CarouselItem 
                 key={`${testimonial.id}-${index}`}
                 className="pl-4 basis-full sm:basis-1/2 lg:basis-auto md:pl-0"
               >
                 <div
+                  onClick={() => setSelectedTestimonial(testimonial)}
                   className={cn(
-                    "bg-white rounded-xl shadow-lg p-4 md:p-5 transition-all duration-300 hover:shadow-xl",
+                    "bg-white rounded-xl shadow-lg p-4 md:p-5 transition-all duration-300",
+                    "hover:shadow-xl hover:scale-[1.02]",
                     "border-l-4 border-gold h-full flex flex-col",
+                    "cursor-pointer",
                     // Alturas variadas para desktop/tablet
                     testimonial.size === 'large' && "md:min-h-[240px]",
                     testimonial.size === 'medium' && "md:min-h-[200px]",
@@ -233,6 +240,34 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
+
+      <Dialog open={!!selectedTestimonial} onOpenChange={() => setSelectedTestimonial(null)}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-burgundy/10 flex items-center justify-center">
+                {selectedTestimonial?.photo ? (
+                  <img 
+                    src={selectedTestimonial.photo} 
+                    alt={selectedTestimonial.name} 
+                    className="w-12 h-12 rounded-full object-cover" 
+                  />
+                ) : (
+                  <User className="w-6 h-6 text-burgundy-dark" />
+                )}
+              </div>
+              <div>
+                <p className="text-lg font-semibold text-burgundy-dark">{selectedTestimonial?.name}</p>
+                <p className="text-sm text-foreground/60">{selectedTestimonial?.role}</p>
+                <p className="text-sm text-gold font-medium">{selectedTestimonial?.organization}</p>
+              </div>
+            </DialogTitle>
+          </DialogHeader>
+          <p className="text-base text-foreground/80 leading-relaxed mt-4">
+            {selectedTestimonial?.fullText}
+          </p>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

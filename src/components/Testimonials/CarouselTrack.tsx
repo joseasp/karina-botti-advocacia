@@ -27,7 +27,7 @@ interface CarouselTrackProps {
   onVisibleChange: (ids: number[]) => void;
   onCardClick: (testimonial: Testimonial) => void;
   autoplayDelay: number;
-  position: 'top' | 'bottom';
+  position: 'top' | 'bottom' | 'single';
 }
 
 export const CarouselTrack = ({ 
@@ -80,7 +80,7 @@ export const CarouselTrack = ({
         {cards.map((testimonial, index) => (
           <CarouselItem
             key={`${position}-${testimonial.id}-${index}`}
-            className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+            className="pl-4 basis-full sm:basis-1/2 md:basis-1/4"
           >
             <TestimonialCard testimonial={testimonial} onCardClick={onCardClick} />
           </CarouselItem>

@@ -87,19 +87,13 @@ const Testimonials = () => {
     ? [...testimonials, ...testimonials, ...testimonials]
     : testimonials;
 
-  const [topTrackCards, setTopTrackCards] = useState<Testimonial[]>([]);
-  const [bottomTrackCards, setBottomTrackCards] = useState<Testimonial[]>([]);
-  const [topVisible, setTopVisible] = useState<number[]>([]);
-  const [bottomVisible, setBottomVisible] = useState<number[]>([]);
+  const [carouselCards, setCarouselCards] = useState<Testimonial[]>([]);
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
 
   useEffect(() => {
-    // Inicializar trilhas com cards embaralhados
+    // Inicializar com cards embaralhados
     const shuffled = shuffleCards(allCards);
-    const midpoint = Math.floor(shuffled.length / 2);
-    
-    setTopTrackCards(shuffled.slice(0, midpoint));
-    setBottomTrackCards(shuffled.slice(midpoint));
+    setCarouselCards(shuffled);
   }, []);
 
   return (
@@ -115,26 +109,14 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Container das duas trilhas */}
-        <div className="space-y-6">
-          {/* TRILHA SUPERIOR */}
-          <CarouselTrack
-            cards={topTrackCards}
-            onVisibleChange={setTopVisible}
-            onCardClick={setSelectedTestimonial}
-            autoplayDelay={8000}
-            position="top"
-          />
-
-          {/* TRILHA INFERIOR */}
-          <CarouselTrack
-            cards={bottomTrackCards}
-            onVisibleChange={setBottomVisible}
-            onCardClick={setSelectedTestimonial}
-            autoplayDelay={9500}
-            position="bottom"
-          />
-        </div>
+        {/* Carrossel único */}
+        <CarouselTrack
+          cards={carouselCards}
+          onVisibleChange={() => {}} // Não precisamos rastrear visibilidade
+          onCardClick={setSelectedTestimonial}
+          autoplayDelay={8000}
+          position="single"
+        />
       </div>
 
       <Dialog open={!!selectedTestimonial} onOpenChange={() => setSelectedTestimonial(null)}>

@@ -89,6 +89,11 @@ const testimonials: Testimonial[] = [
 ];
 
 const Testimonials = () => {
+  // Duplicar testimonials se houver menos de 12 para criar movimento fluido
+  const displayTestimonials = testimonials.length < 12 
+    ? [...testimonials, ...testimonials] 
+    : testimonials;
+
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -124,17 +129,16 @@ const Testimonials = () => {
           }}
           plugins={[
             Autoplay({
-              delay: 5000,
-              stopOnInteraction: true,
-              stopOnMouseEnter: true,
+              delay: 7000,
+              stopOnInteraction: false,
             }),
           ]}
           className="w-full"
         >
           <CarouselContent className="-ml-4 md:grid md:grid-rows-2 md:gap-4 md:auto-cols-[33.333%] md:grid-flow-col">
-            {testimonials.map((testimonial) => (
+            {displayTestimonials.map((testimonial, index) => (
               <CarouselItem 
-                key={testimonial.id}
+                key={`${testimonial.id}-${index}`}
                 className="pl-4 basis-full sm:basis-1/2 lg:basis-auto md:pl-0"
               >
                 <div

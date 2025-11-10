@@ -58,7 +58,7 @@ const testimonials: Testimonial[] = [
     role: "Vereador e Secretário da Mesa Diretora",
     organization: "Cuparaque",
     keyPhrase: "Seu senso de comprometimento faz toda diferença para entrega de bons resultados.",
-    fullText: "Dr. Karina, uma advogada que demonstrou grande conhecimento e profissionalismo em todos os momentos. Sua positividade agrega muito valor à nossa equipe. Seu senso de comprometimento faz toda diferença para entrega de bons resultados.",
+    fullText: "Dra. Karina, uma advogada que demonstrou grande conhecimento e profissionalismo em todos os momentos. Sua positividade agrega muito valor à nossa equipe. Seu senso de comprometimento faz toda diferença para entrega de bons resultados.",
     size: 'large'
   },
   {

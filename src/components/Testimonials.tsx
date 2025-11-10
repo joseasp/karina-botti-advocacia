@@ -1,16 +1,8 @@
 import { useState, useEffect } from "react";
-import { User } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import Autoplay from "embla-carousel-autoplay";
-import { cn } from "@/lib/utils";
+import { User } from "lucide-react";
+import { CarouselTrack } from "./Testimonials/CarouselTrack";
+import { shuffleCards } from "./Testimonials/utils";
 
 interface Testimonial {
   id: number;
@@ -90,32 +82,32 @@ const testimonials: Testimonial[] = [
 ];
 
 const Testimonials = () => {
-  // Triplicar testimonials se houver menos de 15 para criar movimento fluido
-  const displayTestimonials = testimonials.length < 15
+  // Multiplicar cards para ter pool suficiente (21 cards de 7 originais)
+  const allCards = testimonials.length < 20
     ? [...testimonials, ...testimonials, ...testimonials]
     : testimonials;
 
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+  const [topTrackCards, setTopTrackCards] = useState<Testimonial[]>([]);
+  const [bottomTrackCards, setBottomTrackCards] = useState<Testimonial[]>([]);
+  const [topVisible, setTopVisible] = useState<number[]>([]);
+  const [bottomVisible, setBottomVisible] = useState<number[]>([]);
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
 
   useEffect(() => {
-    if (!api) return;
-
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
+    // Inicializar trilhas com cards embaralhados
+    const shuffled = shuffleCards(allCards);
+    const midpoint = Math.floor(shuffled.length / 2);
+    
+    setTopTrackCards(shuffled.slice(0, midpoint));
+    setBottomTrackCards(shuffled.slice(midpoint));
+  }, []);
 
   return (
     <section className="py-20 bg-gradient-to-br from-burgundy/5 via-paper-light to-gold/5 scroll-animate">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-burgundy-dark mb-4">
+        {/* Header */}
+        <div className="text-center mb-16 scroll-animate-slow">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-burgundy-dark mb-4">
             Vozes que Confiam
           </h2>
           <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
@@ -123,121 +115,25 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <Carousel
-          setApi={setApi}
-          opts={{
-            align: "start",
-            loop: true,
-            duration: 25,
-            dragFree: false,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 8000,
-              stopOnInteraction: false,
-            }),
-          ]}
-          className="w-full overflow-hidden"
-        >
-          <CarouselContent className="-ml-4 md:grid md:grid-rows-2 md:gap-4 md:auto-cols-[50%] md:grid-flow-col">
-            {displayTestimonials.map((testimonial, index) => (
-              <CarouselItem 
-                key={`${testimonial.id}-${index}`}
-                className="pl-4 basis-full sm:basis-1/2 lg:basis-auto md:pl-0"
-              >
-                <div
-                  onClick={() => setSelectedTestimonial(testimonial)}
-                  className={cn(
-                    "bg-white rounded-xl shadow-lg p-4 md:p-5 transition-all duration-300",
-                    "hover:shadow-xl hover:scale-[1.02]",
-                    "border-l-4 border-gold h-full flex flex-col",
-                    "cursor-pointer",
-                    // Alturas variadas para desktop/tablet
-                    testimonial.size === 'large' && "md:min-h-[240px]",
-                    testimonial.size === 'medium' && "md:min-h-[200px]",
-                    testimonial.size === 'small' && "md:min-h-[160px]",
-                    // Mobile: altura mínima fixa
-                    "min-h-[200px]"
-                  )}
-                >
-                  {/* Nome/Cargo NO TOPO */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-burgundy/10 flex items-center justify-center flex-shrink-0">
-                      {testimonial.photo ? (
-                        <img 
-                          src={testimonial.photo} 
-                          alt={testimonial.name} 
-                          className="w-10 h-10 rounded-full object-cover"
-                        />
-                      ) : (
-                        <User className="w-5 h-5 text-burgundy-dark" />
-                      )}
-                    </div>
-                    
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-burgundy-dark truncate">
-                        {testimonial.name}
-                      </p>
-                      <p className="text-xs text-foreground/60 truncate">
-                        {testimonial.role}
-                      </p>
-                      <p className="text-xs text-gold font-medium truncate">
-                        {testimonial.organization}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Frase logo abaixo, sem separador */}
-                  <p className="text-sm md:text-base font-medium text-burgundy-dark italic leading-relaxed flex-grow">
-                    "{testimonial.keyPhrase}"
-                  </p>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          {/* Setas de navegação menores */}
-          <CarouselPrevious 
-            className="
-              -left-2 md:-left-6
-              w-8 h-8 md:w-10 md:h-10
-              bg-white/90 hover:bg-burgundy-dark hover:text-white
-              border border-burgundy-dark/20
-              shadow-md
-              transition-all duration-300
-              disabled:opacity-30
-            " 
+        {/* Container das duas trilhas */}
+        <div className="space-y-6">
+          {/* TRILHA SUPERIOR */}
+          <CarouselTrack
+            cards={topTrackCards}
+            onVisibleChange={setTopVisible}
+            onCardClick={setSelectedTestimonial}
+            autoplayDelay={8000}
+            position="top"
           />
-          <CarouselNext 
-            className="
-              -right-2 md:-right-6
-              w-8 h-8 md:w-10 md:h-10
-              bg-white/90 hover:bg-burgundy-dark hover:text-white
-              border border-burgundy-dark/20
-              shadow-md
-              transition-all duration-300
-              disabled:opacity-30
-            " 
-          />
-        </Carousel>
 
-        {/* Indicadores de progresso (dots) */}
-        <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Navegação de depoimentos">
-          {Array.from({ length: count }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => api?.scrollTo(index)}
-              className={cn(
-                "h-2 rounded-full transition-all duration-300",
-                current === index 
-                  ? "w-8 bg-burgundy-dark" 
-                  : "w-2 bg-gold/30 hover:bg-gold/50"
-              )}
-              aria-label={`Ir para depoimento ${index + 1}`}
-              aria-current={current === index ? "true" : "false"}
-              role="tab"
-            />
-          ))}
+          {/* TRILHA INFERIOR */}
+          <CarouselTrack
+            cards={bottomTrackCards}
+            onVisibleChange={setBottomVisible}
+            onCardClick={setSelectedTestimonial}
+            autoplayDelay={9500}
+            position="bottom"
+          />
         </div>
       </div>
 

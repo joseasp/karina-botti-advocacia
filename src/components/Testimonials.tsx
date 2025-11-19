@@ -37,7 +37,7 @@ function useInView(options = {}) {
   return [ref, isInView] as const;
 }
 
-// --- Dados (Atualizados) ---
+// --- Dados ---
 const testimonials: Testimonial[] = [
   {
     id: 1,
@@ -107,7 +107,10 @@ const testimonials: Testimonial[] = [
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  // Estado para controle de autoplay
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  // Estado para saber se o usuário interagiu manualmente (para parar de vez)
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   // Refs para animação de scroll
   const [headerRef, headerInView] = useInView({ threshold: 0.2 });
@@ -116,17 +119,18 @@ const Testimonials = () => {
   // Lógica de Rotação Automática
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    if (isAutoPlaying) {
+
+    // Só roda se estiver em modo autoplay E se o usuário não tiver clicado manualmente
+    if (isAutoPlaying && !hasInteracted) {
       interval = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % testimonials.length);
-      }, 8000); // Aumentei um pouco o tempo de leitura
+      }, 8000);
     }
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, hasInteracted]);
 
   const activeTestimonial = testimonials[activeIndex];
 
-  // Cálculo dos próximos itens
   const getNextTestimonials = () => {
     const next1 = (activeIndex + 1) % testimonials.length;
     const next2 = (activeIndex + 2) % testimonials.length;
@@ -134,16 +138,25 @@ const Testimonials = () => {
     return [testimonials[next1], testimonials[next2], testimonials[next3]];
   };
 
+  // Handlers para pausar na leitura (Mouse e Toque)
+  const handlePauseInteraction = () => setIsAutoPlaying(false);
+  const handleResumeInteraction = () => setIsAutoPlaying(true);
+
+  // Handler para clique manual (Para de vez)
+  const handleManualSelect = (id: number) => {
+    const realIndex = testimonials.findIndex((t) => t.id === id);
+    setActiveIndex(realIndex);
+    setHasInteracted(true); // Para o autoplay permanentemente até recarregar
+  };
+
   return (
     <section className="py-24 bg-[#FDFBF7] relative overflow-hidden">
-      {/* --- BACKGROUND TEXTURIZADO (Sutil) --- */}
-      {/* Padrão de pontos dourados com opacidade extremamente baixa para não poluir */}
+      {/* Background Texturizado */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{ backgroundImage: "radial-gradient(#D4AF37 1px, transparent 1px)", backgroundSize: "24px 24px" }}
       ></div>
 
-      {/* Estilos inline para Scrollbar personalizada interna */}
       <style>{`
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
@@ -152,46 +165,54 @@ const Testimonials = () => {
       `}</style>
 
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        {/* --- Header com Animação --- */}
+        {/* --- Header --- */}
         <div
           ref={headerRef as any}
-          className={`text-center mb-16 transition-all duration-1000 ease-out ${
+          className={`text-center mb-12 lg:mb-16 transition-all duration-1000 ease-out ${
             headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-burgundy-dark mb-4">Vozes que Confiam</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-burgundy-dark mb-4">
+            Vozes que Confiam
+          </h2>
           <div className="h-1 w-24 bg-gold mx-auto rounded-full opacity-60" />
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             O reconhecimento de quem vivencia a transformação através de uma assessoria jurídica de excelência.
           </p>
         </div>
 
-        {/* --- Conteúdo Principal com Animação (Delay leve) --- */}
+        {/* --- Conteúdo --- */}
         <div
           ref={contentRef as any}
           className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start transition-all duration-1000 delay-200 ease-out ${
             contentInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          {/* LADO ESQUERDO: Card Principal (Altura Fixa) */}
+          {/* LADO ESQUERDO: Card Principal */}
           <div
             className="lg:col-span-7 relative"
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
+            // Eventos para pausar temporariamente ao ler
+            onMouseEnter={handlePauseInteraction}
+            onMouseLeave={handleResumeInteraction}
+            onTouchStart={handlePauseInteraction}
+            onTouchEnd={handleResumeInteraction}
           >
-            {/* O Card em si tem altura fixa (h-[500px] desktop, h-auto mobile) para evitar pulos */}
-            <div className="bg-white rounded-3xl shadow-xl border border-gold/20 relative overflow-hidden h-auto lg:h-[500px] flex flex-col">
-              <Quote className="absolute top-4 right-8 w-32 h-32 text-gold/5 rotate-180 pointer-events-none" />
+            {/* 
+              ALTURA FIXA NO MOBILE E DESKTOP:
+              h-[600px] no mobile garante espaço e estabilidade. 
+              lg:h-[500px] no desktop.
+            */}
+            <div className="bg-white rounded-3xl shadow-xl border border-gold/20 relative overflow-hidden h-[600px] lg:h-[500px] flex flex-col transition-all duration-300">
+              <Quote className="absolute top-4 right-8 w-24 h-24 md:w-32 md:h-32 text-gold/5 rotate-180 pointer-events-none" />
 
-              {/* Conteúdo Interno com Fade ao trocar */}
               <div
                 key={activeTestimonial.id}
-                className="flex flex-col h-full p-8 md:p-10 animate-in fade-in slide-in-from-bottom-2 duration-500"
+                className="flex flex-col h-full p-6 md:p-10 animate-in fade-in slide-in-from-bottom-2 duration-500"
               >
-                {/* Header do Card: Foto e Nome */}
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6 flex-shrink-0">
+                {/* Info do Usuário */}
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 mb-6 flex-shrink-0">
                   <div className="relative">
-                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-paper border-4 border-white shadow-lg flex items-center justify-center overflow-hidden ring-1 ring-gold/30">
+                    <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-paper border-4 border-white shadow-lg flex items-center justify-center overflow-hidden ring-1 ring-gold/30">
                       {activeTestimonial.photo ? (
                         <img
                           src={activeTestimonial.photo}
@@ -199,13 +220,15 @@ const Testimonials = () => {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <User className="w-10 h-10 text-burgundy/40" />
+                        <User className="w-8 h-8 md:w-10 md:h-10 text-burgundy/40" />
                       )}
                     </div>
                   </div>
 
                   <div className="text-center md:text-left pt-2">
-                    <h3 className="text-2xl font-serif font-bold text-burgundy-dark">{activeTestimonial.name}</h3>
+                    <h3 className="text-xl md:text-2xl font-serif font-bold text-burgundy-dark">
+                      {activeTestimonial.name}
+                    </h3>
                     <div className="flex flex-col">
                       <span className="text-gold font-medium uppercase tracking-wide text-xs mt-1">
                         {activeTestimonial.organization}
@@ -215,16 +238,17 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                {/* Área de Texto com Scroll Interno */}
+                {/* Texto com Rolagem */}
                 <div className="flex-grow overflow-hidden flex flex-col">
                   <blockquote className="flex flex-col h-full">
-                    <p className="text-xl md:text-2xl font-serif leading-snug text-burgundy-dark mb-4 flex-shrink-0">
+                    {/* Frase Principal */}
+                    <p className="text-lg md:text-2xl font-serif leading-snug text-burgundy-dark mb-4 flex-shrink-0 italic">
                       "{activeTestimonial.keyPhrase}"
                     </p>
 
-                    {/* Aqui está o segredo: overflow-y-auto com scrollbar customizada */}
+                    {/* Texto Completo com Rolagem e Aspas */}
                     <div className="overflow-y-auto custom-scrollbar pr-2 flex-grow">
-                      <p className="text-gray-600 leading-relaxed text-base md:text-lg">{activeTestimonial.fullText}</p>
+                      <p className="text-gray-600 leading-relaxed text-sm md:text-lg">"{activeTestimonial.fullText}"</p>
                     </div>
                   </blockquote>
                 </div>
@@ -232,8 +256,8 @@ const Testimonials = () => {
             </div>
           </div>
 
-          {/* LADO DIREITO: Lista de Navegação */}
-          <div className="lg:col-span-5 flex flex-col gap-4 pt-2">
+          {/* LADO DIREITO: Lista */}
+          <div className="lg:col-span-5 flex flex-col gap-3 md:gap-4 pt-2">
             <h4 className="text-xs font-semibold text-gold/80 uppercase tracking-widest mb-2 pl-1">
               Outros depoimentos
             </h4>
@@ -241,12 +265,8 @@ const Testimonials = () => {
             {getNextTestimonials().map((item) => (
               <div
                 key={item.id}
-                onClick={() => {
-                  const realIndex = testimonials.findIndex((t) => t.id === item.id);
-                  setActiveIndex(realIndex);
-                  setIsAutoPlaying(false);
-                }}
-                className="group cursor-pointer bg-white/60 hover:bg-white border border-transparent hover:border-gold/30 p-4 rounded-xl transition-all duration-300 flex items-center gap-4 hover:shadow-md hover:-translate-x-1"
+                onClick={() => handleManualSelect(item.id)}
+                className="group cursor-pointer bg-white/60 hover:bg-white border border-transparent hover:border-gold/30 p-3 md:p-4 rounded-xl transition-all duration-300 flex items-center gap-3 md:gap-4 hover:shadow-md hover:-translate-x-1"
               >
                 <div className="w-10 h-10 rounded-full bg-burgundy/5 flex-shrink-0 flex items-center justify-center border border-gold/10 group-hover:border-gold/40 overflow-hidden transition-colors">
                   {item.photo ? (
@@ -271,12 +291,15 @@ const Testimonials = () => {
               </div>
             ))}
 
-            {/* Indicadores (Dots) */}
-            <div className="mt-6 flex gap-2 justify-center lg:justify-start pl-1">
+            {/* Indicadores */}
+            <div className="mt-4 md:mt-6 flex gap-2 justify-center lg:justify-start pl-1">
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setActiveIndex(idx)}
+                  onClick={() => {
+                    setActiveIndex(idx);
+                    setHasInteracted(true);
+                  }}
                   className={`h-1.5 rounded-full transition-all duration-500 ${
                     idx === activeIndex ? "w-8 bg-gold" : "w-2 bg-gray-200 hover:bg-gold/40"
                   }`}

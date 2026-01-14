@@ -16,7 +16,7 @@ export default defineConfig(async ({ command, mode }) => {
   }
 
   return {
-    base: command === "build" ? "/karina-botti-advocacia/" : "/",
+    base: "/",
     server: {
       host: "::",
       port: 8080,

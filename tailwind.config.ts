@@ -18,6 +18,10 @@ export default {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
+        mainBg: "#fffef5",
+        secondaryBg: "#dbcfb0",
+        mainText: "#594838",
+        highlight: "#80353a",
         burgundy: {
           DEFAULT: "hsl(var(--burgundy))",
           medium: "hsl(var(--burgundy-medium))",

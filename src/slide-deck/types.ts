@@ -3,6 +3,8 @@ export type SlideLayout = 'cover' | 'list' | 'cards' | 'timeline' | 'section' | 
 export interface SlideData {
   id: number;
   layout: SlideLayout;
+  tag?: string;
+  tagSub?: string;
   title: string;
   subtitle?: string;
   content?: string[];
@@ -10,4 +12,9 @@ export interface SlideData {
   highlight?: string;
   footerNote?: string;
   imagePlaceholder?: boolean; // Flag to show a box for an image
+  authorName?: string;
+  authorRole?: string;
+  authorOab?: string;
+  authorOAB?: string;
+  authorImage?: string;
 }

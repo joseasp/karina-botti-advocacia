@@ -1,5 +1,4 @@
 import { SlideData } from './types';
-import karinaPortrait from '@/assets/karina-portrait.jpg';
 
 export const SLIDES: SlideData[] = [
   {
@@ -7,9 +6,10 @@ export const SLIDES: SlideData[] = [
     layout: 'cover',
     title: "CAPACITAÇÃO",
     subtitle: "Processo Legislativo Municipal + Tramitação Eletrônica",
-    highlight: "Qualidade, transparência e redução de riscos"
+    highlight: "“Se não está registrado, institucionalmente não existe.”",
+    footerNote: "Qualidade, transparência e redução de riscos"
   },
-{
+  {
     id: 2,
     layout: 'list',
     title: "Por que este treinamento",
@@ -229,7 +229,8 @@ export const SLIDES: SlideData[] = [
       "Instrução → Notas, pareceres, diligências",
       "Sessão → Discussão, votação, resultado",
       "Fase Externa → Autógrafo, sanção, publicação"
-    ]
+    ],
+    footerNote: "Sempre anexar peças, nunca sobrescrever versões."
   },
   {
     id: 19,
@@ -285,17 +286,10 @@ export const SLIDES: SlideData[] = [
   {
     id: 23,
     layout: 'closing',
-    tag: "TREINAMENTO",
-    tagSub: "Processo Legislativo",
     title: "Encerramento",
     subtitle: "Modernização com rastreabilidade e confiança",
-    highlight: "O segredo de um grande sucesso está no trabalho de uma grande equipe.",
-    authorName: "KARINA BOTTI",
-    authorRole: "Assessora Jurídica",
-    authorOAB: "OAB/MG 111.637",
-    authorImage: karinaPortrait,
+    highlight: "“O segredo de um grande sucesso está no trabalho de uma grande equipe.”",
+    footerNote: "Padrão de qualidade: Gestão + Transparência + Segurança",
     imagePlaceholder: true
   }
 ];
-
-

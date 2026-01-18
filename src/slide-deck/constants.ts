@@ -7,7 +7,7 @@ export const SLIDES: SlideData[] = [
     layout: 'cover',
     title: "CAPACITAÇÃO",
     subtitle: "Processo Legislativo Municipal + Tramitação Eletrônica",
-    highlight: "Qualidade, transparência e redução de riscos"
+    highlight: ""
   },
 {
     id: 2,

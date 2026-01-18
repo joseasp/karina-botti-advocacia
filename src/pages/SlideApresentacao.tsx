@@ -180,31 +180,7 @@ const SlideApresentacao: React.FC = () => {
             </div>
 
             <div className="flex justify-between items-end">
-                {/* Footer Note */}
-                <div className="max-w-2xl">
-                    <AnimatePresence mode='wait'>
-                        {currentSlide.footerNote ? (
-                             <motion.p 
-                                key={currentSlide.footerNote}
-                                initial={{ opacity: 0, y: 5 }} 
-                                animate={{ opacity: 1, y: 0 }} 
-                                exit={{ opacity: 0, y: -5 }}
-                                className="text-lg font-serif italic text-mainText/70"
-                            >
-                                {currentSlide.footerNote}
-                            </motion.p>
-                        ) : (
-                            <motion.p 
-                                key="default"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="text-xs text-mainText/30 uppercase tracking-widest"
-                            >
-                                Capacitação Legislativa
-                            </motion.p>
-                        )}
-                    </AnimatePresence>
-                </div>
+                <div className="flex-1" aria-hidden="true" />
 
                 {/* Controls */}
                 <div className="flex items-center gap-6">

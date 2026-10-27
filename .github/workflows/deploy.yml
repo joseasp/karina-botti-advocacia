@@ -1,5 +1,10 @@
 name: Deploy to GitHub Pages
 
+# Publica a pasta site-chatgpt: cópia estática do site que a Karina montou no
+# ChatGPT (out/2026). O projeto Vite antigo continua neste repositório, intocado.
+# Para voltar a ele: tag site-antigo-2026-10, ou trocar o job build de volta para
+# npm ci + npm run build + path: dist.
+
 on:
   push:
     branches:
@@ -21,18 +26,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "npm"
-
-      - run: npm ci
-
-      - run: npm run build
-
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site-chatgpt
 
   deploy:
     runs-on: ubuntu-latest
